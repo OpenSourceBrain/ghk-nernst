@@ -1,8 +1,12 @@
 * Minimal example
-  nrn scratch script with ghk Ca mechanismo
+  simple nrn script with ghk Ca mechanism
   - [ ] remove Ca diffusion and replace with simple exp decay
   - [ ] test neuron's ghk routine instead of doing everything from scratch
   - [X] check eqs: neuron == wikipedia == hille
+
+* lems
+  - [ ] test existing ghk (hardcoded for Ca)
+  - [ ] generalize to any ion
 
 
 
