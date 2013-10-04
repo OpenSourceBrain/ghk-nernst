@@ -54,6 +54,11 @@ def create_graphs():
     g_ca.size(0,5,0,0.5)
     h.graphList[0].append(g_ca)
     g_ca.addexpr("cai*1e4", 2, 1, 0.367087, 0.966017, 2)
+
+    g_na = h.Graph()
+    g_na.size(0,5,0,20)
+    h.graphList[0].append(g_na)
+    g_na.addexpr("nai", 2, 1, 0.367087, 0.966017, 2)
     
 
 
