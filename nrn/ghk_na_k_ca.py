@@ -67,11 +67,13 @@ def create_graphs():
 comp = create_comp()
 
 stim = h.IClamp(0.5, sec=comp)
-stim.delay = 0
+stim.delay = 4
 stim.dur = 0.1
 stim.amp = 0.05
 
 create_graphs()
+h.tstop = 10
+h.tstop_changed()
 h.run()
 
 
