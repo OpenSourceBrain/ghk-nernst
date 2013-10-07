@@ -74,6 +74,8 @@ stim.amp = 0.05
 create_graphs()
 h.tstop = 10
 h.tstop_changed()
+h.dt = 0.0001
+h.setdt(0.0001)
 h.run()
 
 

@@ -130,7 +130,7 @@
     <!-- End of NeuroML2 content -->
 
 
-    <Simulation id="sim1" length="10ms" step="0.025ms" target="net1">
+    <Simulation id="sim1" length="10ms" step="0.001ms" target="net1">
 
         <Display id="d1" title="Membrane Potential" timeScale="1ms" xmin="0" xmax="10" ymin="-80" ymax="40">
             <Line id="pop[0]/v" quantity="pop[0]/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
