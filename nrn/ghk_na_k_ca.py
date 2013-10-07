@@ -13,7 +13,7 @@ def create_comp():
 
     comp.insert('HHna')
     comp.insert('HHk')
-    comp.insert('cachan')
+    comp.insert('cachanghk')
     comp.insert('cabuff')
     comp.insert('pas')
 
@@ -24,7 +24,7 @@ def create_comp():
     comp(0.5).g_pas = 0.0003
     comp(0.5).e_pas = -53.1
 
-    h('pcabar_cachan = 2.5e-5')
+    h('pcabar_cachanghk = 2.5e-5')
     h('gnabar_HHna = .120')
     h('gkbar_HHk = .036')
 
@@ -48,7 +48,7 @@ def create_graphs():
     g_ica.size(0,5,-0.04,0.02)
     h.graphList[0].append(g_ica)
     g_ica.addexpr("ica", 1, 1, 0.49214, 0.971132, 2)
-    g_ica.addexpr("ica_cachan", 4, 1, 2.50949, 0.00180314, 1)
+    g_ica.addexpr("ica_cachanghk", 4, 1, 2.50949, 0.00180314, 1)
 
     g_ca = h.Graph()
     g_ca.size(0,5,0,0.5)

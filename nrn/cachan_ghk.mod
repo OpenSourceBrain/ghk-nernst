@@ -14,7 +14,7 @@ UNITS {
 }
 
 NEURON {
-	SUFFIX cachan
+	SUFFIX cachanghk
 	USEION ca READ cai, cao WRITE ica
 	RANGE pcabar, ica
 }
