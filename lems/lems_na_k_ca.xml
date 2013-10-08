@@ -50,7 +50,9 @@
     <concentrationModel id="simple_decay" type="fixedFactorConcentrationModel"
                          restingConc="3e-6 mM"
                          decayConstant="1.0 ms"
-                         phi="8.4E-6 mol_per_m3_per_A_per_s"/>
+                         <!-- phi="8.4E-6 mol_per_m3_per_A_per_s"/> -->
+                         <!-- phi="8.4E6 mol_per_m3_per_A_per_s"/> -->
+                         phi="9.54929658551e-02 mmolar_per_nA_per_ms"/>
 
 
     <cell id="na_k_ca">
@@ -140,7 +142,7 @@
             <Line id="Ca iDensity" quantity="pop[0]/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
         </Display>
 
-        <Display id="d4" title="Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="10" ymin="0" ymax="2">
+        <Display id="d4" title="Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="10" ymin="2.95" ymax="3.05">
             <Line id="caConc" quantity="pop[0]/caConc" scale="1e-6 mM"  color="#ff0000" timeScale="1ms"/>
         </Display>
 
@@ -149,7 +151,8 @@
 	</Display>
 
         <OutputFile id="of0" fileName="/tmp/lemsica.dat">
-            <OutputColumn id="v" quantity="pop[0]/biophys/membraneProperties/ca_all/iDensity"/>
+            <OutputColumn id="ica" quantity="pop[0]/biophys/membraneProperties/ca_all/iDensity"/>
+            <OutputColumn id="ca" quantity="pop[0]/caConc"/>
         </OutputFile>
         
     </Simulation>
