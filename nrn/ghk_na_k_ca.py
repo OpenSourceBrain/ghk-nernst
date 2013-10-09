@@ -2,7 +2,7 @@
 
 from neuron import *
 from nrn import *
-from neuron import gui
+#from neuron import gui
 
 
 h.celsius = 16.3
@@ -45,7 +45,7 @@ def create_comp(name = 'soma'):
     return comp
 
 
-def create_graphs(name):
+def create_nrn_graphs(name):
     g_v = h.Graph()
     g_v.size(0,5,-80,40)
     h.graphList[0].append(g_v)
@@ -66,6 +66,17 @@ def create_graphs(name):
     #g_na.size(0,5,0,20)
     #h.graphList[0].append(g_na)
     #g_na.addexpr(name + ".nai", 2, 1, 0.367087, 0.966017, 2)
+    
+def plot_timeseries(varlist):
+    from pylab import plot, show, figure
+    from numpy import savetxt
+
+    v = get_dumps(varlist)
+    savetxt('/tmp/nrnghk.dat', v)
+    for i in range(1, v.shape[1]):
+        figure()
+        plot(v[:,0], v[:,i])
+    show()
     
 
     
@@ -89,6 +100,15 @@ def get_dumps(varlist):
         pvs.append(h.__getattribute__(v).to_python())
     return c_[pvs[:]].T
 
+def run(tstop=10, dt=0.001):
+    h.dt = 0.0001
+    h.finitialize(-65)
+    h.fcurrent()
+    h.frecord_init()
+    while h.t < tstop:
+        h.fadvance()
+
+
 
 comp = create_comp('soma')
 name = comp.name()
@@ -99,15 +119,8 @@ stim.dur = 0.1
 stim.amp = 0.05
 
 varlist = ['v(0.5)', 'ica(0.5)', 'cai(0.5)']
-create_graphs(name)
+#create_nrn_graphs(name)
 create_dumps(name, varlist)
+run()
 
-h.tstop = 20
-h.tstop_changed()
-h.dt = 0.0001
-h.setdt(0.0001)
-h.run()
-
-v = get_dumps(varlist)
-from numpy import savetxt
-savetxt('/tmp/nrnghk.dat', v)
+plot_timeseries(varlist)
