@@ -101,7 +101,7 @@ def get_dumps(varlist):
     return c_[pvs[:]].T
 
 def run(tstop=10, dt=0.001):
-    h.dt = 0.0001
+    h.dt = dt
     h.finitialize(-65)
     h.fcurrent()
     h.frecord_init()
@@ -121,6 +121,6 @@ stim.amp = 0.05
 varlist = ['v(0.5)', 'ica(0.5)', 'cai(0.5)']
 #create_nrn_graphs(name)
 create_dumps(name, varlist)
-run()
+run(20, 0.001)
 
 plot_timeseries(varlist)
