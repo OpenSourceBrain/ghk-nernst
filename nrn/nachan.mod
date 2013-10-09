@@ -78,7 +78,7 @@ FUNCTION expM1(x,y) {
 }
 
 PROCEDURE rates(v(mV)) {LOCAL a, b
-	TABLE minf, hinf, mtau, htau DEPEND celsius FROM -100 TO 100 WITH 200
+	:TABLE minf, hinf, mtau, htau DEPEND celsius FROM -100 TO 100 WITH 200
 	a = alp(v,0)  b=bet(v,0)
 	mtau = 1/(a + b)
 	minf = a/(a + b)

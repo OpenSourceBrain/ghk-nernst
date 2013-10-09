@@ -22,7 +22,9 @@ NEURON {
 UNITS {
 	:FARADAY = 96520 (coul)
 	:R = 8.3134 (joule/degC)
-	FARADAY = (faraday) (coulomb)
+	:boris: bypass neuron's faraday const
+	: FARADAY = (faraday) (coulomb)
+	FARADAY = (96485.3) (coulomb)
 	R = (k-mole) (joule/degC)
 }
 
@@ -74,7 +76,7 @@ FUNCTION efun(z) {
 
 FUNCTION oca_ss(v(mV)) {
 	LOCAL a, b
-	TABLE FROM -150 TO 150 WITH 200
+	:TABLE FROM -150 TO 150 WITH 200
 	
 	v = v+65
 	a = 1(1/ms)*efun(.1(1/mV)*(25-v))
@@ -84,7 +86,7 @@ FUNCTION oca_ss(v(mV)) {
 
 FUNCTION oca_tau(v(mV)) (ms) {
 	LOCAL a, b, q
-	TABLE DEPEND celsius, taufactor FROM -150 TO 150 WITH 200
+	:TABLE DEPEND celsius, taufactor FROM -150 TO 150 WITH 200
 
 	q = 3^((celsius - 6.3)/10 (degC))
 	v = v+65

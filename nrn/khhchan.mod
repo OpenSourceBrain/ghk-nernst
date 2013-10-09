@@ -68,7 +68,7 @@ FUNCTION expM1(x,y) {
 
 
 PROCEDURE rate(v) {LOCAL a, b :rest = -70
-	TABLE inf, tau DEPEND celsius FROM -100 TO 100 WITH 200
+	:TABLE inf, tau DEPEND celsius FROM -100 TO 100 WITH 200
 		a = alp(v)  b=bet(v)
 		tau = 1/(a + b)
 		inf = a/(a + b)
