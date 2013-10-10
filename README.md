@@ -15,13 +15,13 @@ The same mechanisms are implemented in NEURON as a comparison.
 
 From [GENESIS](http://www.genesis-sim.org/GENESIS/gum-tutorials/beeman/Hyperdoc/Manual-26.html#ss26.30)
 
-	      valency * F                                                                                          
+              valency * F                                                                                          
      K     =  - - - - - - -                                                                                        
-	      R * (T + 273)                                                                                        
+              R * (T + 273)                                                                                        
 
-			       Cin * exp(K * Vm) - Cout                                                           
+                               Cin * exp(K * Vm) - Cout                                                           
      Ik    =  -p * F * K * Vm  - - - - - - - - - - - -                                                            
-				   exp(K * Vm) - 1                                                                
+                                   exp(K * Vm) - 1                                                                
 
      (it is  missing one valency factor in comparison to the others, check genesis source)
 
@@ -36,6 +36,6 @@ From Steuber et al DCN model:
 
 From [Wikipedia](http://en.wikipedia.org/wiki/GHK_flux_equation)                                                   
 
-					     concInt -  concExt * exp(-z * V * F /(R * T))                        
+                                             concInt -  concExt * exp(-z * V * F /(R * T))                        
      Idensity = P * z^2 * V * F^2/(R * T)  - - - - - - - - - - - - - - - - - - - - - - - - - -                    
-						     1 - exp(-z * V * F /(R * T))                                 
+                                                     1 - exp(-z * V * F /(R * T))                                 
