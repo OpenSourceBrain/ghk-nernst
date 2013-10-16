@@ -36,8 +36,8 @@ def create_comp(name = 'soma'):
 
     h.cao0_ca_ion = 2
     h.cai0_ca_ion = 3e-6
-    h.nao = 115
-    h.nai = 15
+    h('nao = 115')
+    h('nai = 15')
 
     h.ion_style("na_ion", 1, 2, 1, 0, 0) 
 
@@ -52,7 +52,6 @@ def plot_timeseries(vdict, varlist):
         figure()
         plot(t, vdict[n], label=n)
         title(n)
-
     
     show()
 
@@ -79,16 +78,13 @@ def run(tstop=10, dt=0.001):
 
 
 comp = create_comp('soma')
-name = comp.name()
 
 stim = h.IClamp(0.5, sec=comp)
 stim.delay = 4
 stim.dur = 0.1
 stim.amp = 0.05
 
-varlist = ['v(0.5)', 'ica(0.5)', 'cai(0.5)']
 varlist = ['v', 'ica', 'cai']
-
 ds = create_dumps(comp, varlist)
 
 run(20, 0.001)
