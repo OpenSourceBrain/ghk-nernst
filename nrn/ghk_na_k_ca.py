@@ -46,7 +46,6 @@ def create_comp(name = 'soma'):
     
 def plot_timeseries(vdict, varlist):
     from pylab import plot, show, figure, title
-
     t = vdict['t']
     for n in varlist:
         figure()
@@ -63,8 +62,15 @@ def create_dumps(section, varlist):
     
     recordings['t'] = h.Vector()
     recordings['t'].record(h._ref_t)
+    return recordings 
 
-    return recordings
+
+def dump_to_file(vdict, varlist, fname='/tmp/ghk_nrn.dat'):
+    from numpy import savetxt, array
+
+    vnames = ['t'] + varlist
+    X = array([vdict[x].to_python() for x in vnames]).T
+    savetxt(fname, X)
 
 
 def run(tstop=10, dt=0.001):
@@ -90,3 +96,4 @@ ds = create_dumps(comp, varlist)
 run(20, 0.001)
 
 plot_timeseries(ds, varlist)
+dump_to_file(ds, varlist)
