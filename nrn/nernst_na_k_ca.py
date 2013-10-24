@@ -13,7 +13,7 @@ def create_comp(name = 'soma'):
 
     comp.insert('HHna')
     comp.insert('HHk')
-    comp.insert('cachanghk')
+    comp.insert('cachannernst')
     comp.insert('cabuff')
     comp.insert('pas')
 
@@ -24,9 +24,12 @@ def create_comp(name = 'soma'):
     comp(0.5).g_pas = 0.0003
     comp(0.5).e_pas = -53.1
 
-    comp(0.5).cachanghk.pcabar = 2.5e-5
-    comp(0.5).HHna.gnabar = .120
-    comp(0.5).HHk.gkbar = .036
+    pcabar = 2.5e-5
+    comp(0.5).cachannernst.pcabar = pcabar
+    # comp(0.5).HHna.gnabar = .120
+    # comp(0.5).HHk.gkbar = .036
+    comp(0.5).HHna.gnabar = 0.
+    comp(0.5).HHk.gkbar = 0.
     
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
@@ -34,12 +37,15 @@ def create_comp(name = 'soma'):
     print 'phi times area to be used in lems', phi * area
     comp(0.5).cabuff.phi = phi
 
+    print 'pcabar divided by area to be used in lems', pcabar / area
+
     h.cao0_ca_ion = 2
     h.cai0_ca_ion = 3e-6
     h('nao = 115')
     h('nai = 15')
-
-    h.ion_style("na_ion", 1, 2, 1, 0, 0) 
+    
+    #we don't need nrn to calculate the nernst potential for ca
+    h.ion_style("ca_ion", 3, 0, 0, 0, 1) 
 
     return comp
 
@@ -65,7 +71,7 @@ def create_dumps(section, varlist):
     return recordings 
 
 
-def dump_to_file(vdict, varlist, fname='/tmp/nrn_ghk.dat'):
+def dump_to_file(vdict, varlist, fname='/tmp/nrn_nernst.dat'):
     from numpy import savetxt, array
 
     vnames = ['t'] + varlist
@@ -90,7 +96,7 @@ comp = create_comp('soma')
 # stim.dur = 0.1
 # stim.amp = 0.05
 
-varlist = ['v', 'ica', 'cai']
+varlist = ['v', 'ica', 'cai', 'cao', 'eca', 'oca_cachannernst']
 ds = create_dumps(comp, varlist)
 
 run(20, 0.001)
