@@ -39,7 +39,7 @@ def create_comp(name = 'soma'):
 
 
     h.cao0_ca_ion = 2
-    h.cai0_ca_ion = 3e-6
+    h.cai0_ca_ion = 5e-6
     h('nao = 115')
     h('nai = 15')
 
@@ -92,10 +92,10 @@ comp = create_comp('soma')
 # stim.dur = 0.1
 # stim.amp = 0.05
 
-varlist = ['v', 'ica', 'cai', 'cao', 'eca', 'oca_cachannernstnative']
+varlist = ['v', 'ica', 'cai', 'cao', 'eca', 'oca_cachannernstnative', 't1_cabuff', 't2_cabuff']
 ds = create_dumps(comp, varlist)
 
-run(20, 0.001)
+run(50, 0.001)
 
 plot_timeseries(ds, varlist)
 dump_to_file(ds, varlist)

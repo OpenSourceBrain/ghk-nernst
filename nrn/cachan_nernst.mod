@@ -26,8 +26,8 @@ UNITS {
 }
 
 PARAMETER {
-	taufactor=2	<1e-6, 1e6>: Time constant factor relative to standard HH
-	pcabar=.2e-7	(cm/s)	<0, 1e9>: Maximum Permeability
+	taufactor = 2	<1e-6, 1e6>: Time constant factor relative to standard HH
+	pcabar = .2e-7	(cm/s)	<0, 1e9>: Maximum Permeability
 }
 
 ASSIGNED {
@@ -84,7 +84,7 @@ FUNCTION oca_tau(v(mV)) (ms) {
 	LOCAL a, b, q
 	:TABLE DEPEND celsius, taufactor FROM -150 TO 150 WITH 200
 
-	q = 3^((celsius - 6.3)/10 (degC))
+	:q = 3^((celsius - 6.3)/10 (degC))
 	v = v+65
 	a = 1(1/ms)*efun(.1(1/mV)*(25-v))
 	b = 4(1/ms)*exp(-v/18(mV))

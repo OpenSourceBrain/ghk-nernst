@@ -5,7 +5,6 @@ from nrn import *
 #from neuron import gui
 
 
-h.celsius = 16.3
 
 def create_comp(name = 'soma'):
     
@@ -26,23 +25,25 @@ def create_comp(name = 'soma'):
 
     pcabar = 2.5e-5
     comp(0.5).cachannernst.pcabar = pcabar
-    # comp(0.5).HHna.gnabar = .120
-    # comp(0.5).HHk.gkbar = .036
-    comp(0.5).HHna.gnabar = 0.
-    comp(0.5).HHk.gkbar = 0.
+    #comp(0.5).HHna.gnabar = .120
+    #comp(0.5).HHk.gkbar = .036
+    comp(0.5).HHna.gnabar = 0.0
+    comp(0.5).HHk.gkbar = 0.0
     
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
-    phi = 3e-3
+    # phi = 3e-3
+    phi = 0
     print 'phi times area to be used in lems', phi * area
     comp(0.5).cabuff.phi = phi
 
-    print 'pcabar divided by area to be used in lems', pcabar / area
 
     h.cao0_ca_ion = 2
     h.cai0_ca_ion = 3e-6
     h('nao = 115')
     h('nai = 15')
+
+    h.celsius = 16.3
     
     #we don't need nrn to calculate the nernst potential for ca
     h.ion_style("ca_ion", 3, 0, 0, 0, 1) 
@@ -96,10 +97,11 @@ comp = create_comp('soma')
 # stim.dur = 0.1
 # stim.amp = 0.05
 
+
 varlist = ['v', 'ica', 'cai', 'cao', 'eca', 'oca_cachannernst']
 ds = create_dumps(comp, varlist)
 
-run(20, 0.001)
+run(50, 0.001)
 
 plot_timeseries(ds, varlist)
 dump_to_file(ds, varlist)

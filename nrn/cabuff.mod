@@ -21,6 +21,7 @@ NEURON {
     RANGE rest_conc
     RANGE tau
     RANGE phi
+    RANGE t1, t2
 }
 
 ASSIGNED {
@@ -30,9 +31,6 @@ ASSIGNED {
     area (um)
 }
 
-INITIAL {
-    cai = rest_conc
-}
 
 PARAMETER {
     total_current
@@ -46,7 +44,7 @@ STATE {
 }
 
 BREAKPOINT {
-    SOLVE conc METHOD derivimplicit
+    SOLVE conc METHOD cnexp
 }
 
 DERIVATIVE conc {
