@@ -12,7 +12,7 @@ def create_comp(name = 'soma'):
 
     comp.insert('HHna')
     comp.insert('HHk')
-    comp.insert('cachanghk')
+    comp.insert('cachannernstnative')
     comp.insert('cabuff')
     comp.insert('pas')
 
@@ -23,15 +23,17 @@ def create_comp(name = 'soma'):
     comp(0.5).g_pas = 0.0003
     comp(0.5).e_pas = -53.1
 
-    comp(0.5).cachanghk.pcabar = 2.5e-5
+    pcabar = 2.5e-5
+    comp(0.5).cachannernstnative.pcabar = pcabar
     comp(0.5).HHna.gnabar = .120
     comp(0.5).HHk.gkbar = .036
     
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
     phi = 3e-3
-    print '0.1 * phi * area to be used in lems', 0.1 * phi * area 
     comp(0.5).cabuff.phi = phi
+    print '0.1 * phi * area to be used in lems', 0.1 * phi * area
+
 
     h.cao0_ca_ion = 2
     h.cai0_ca_ion = 5e-6
@@ -62,7 +64,7 @@ def create_dumps(section, varlist):
     return recordings 
 
 
-def dump_to_file(vdict, varlist, fname='/tmp/nrn_ghk.dat'):
+def dump_to_file(vdict, varlist, fname='/tmp/nrn_natnernst.dat'):
     from numpy import savetxt, array
 
     vnames = ['t'] + varlist

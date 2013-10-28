@@ -3,7 +3,7 @@ TITLE HH sodium channel
 
 NEURON {
 	SUFFIX HHna
-	USEION na READ ena WRITE ina
+	USEION na WRITE ina
 	RANGE gnabar, ina
 	GLOBAL minf, hinf, mtau, htau
 	THREADSAFE
@@ -16,6 +16,7 @@ UNITS {
 
 PARAMETER {
 	gnabar=.120 (mho/cm2) <0,1e9>
+	ena=50.799202 (mV)
 }
 
 STATE {
@@ -25,7 +26,6 @@ STATE {
 ASSIGNED {
 	v (mV)
 	celsius (degC) : 6.3
-	ena (mV)
 	ina (mA/cm2)
 	minf hinf
 	mtau (ms)
