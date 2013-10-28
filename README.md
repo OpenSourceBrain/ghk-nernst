@@ -12,9 +12,11 @@ its reversal potential.
 The same mechanisms are implemented in _neuron_ as a comparison. Notice 
 that _neuron_ has builtin support for calculating reversal potentials
 via the Nersnt equation, which can be compared to our implementation written from
-scratch, see
+scratch by running
 [native nrn](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernstnat_na_k_ca.py), 
-[from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernst_na_k_ca.py)
+[from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernst_na_k_ca.py); see 
+also [native nernst modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst_native.mod) and 
+[from scratch modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst.mod)
 
 
 Running tests
