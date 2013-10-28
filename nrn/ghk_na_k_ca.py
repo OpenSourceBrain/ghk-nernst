@@ -5,7 +5,6 @@ from nrn import *
 #from neuron import gui
 
 
-h.celsius = 16.3
 
 def create_comp(name = 'soma'):
     
@@ -31,15 +30,13 @@ def create_comp(name = 'soma'):
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
     phi = 3e-3
-    print 'phi times area to be used in lems', phi * area
+    print '0.1 * phi * area to be used in lems', 0.1 * phi * area 
     comp(0.5).cabuff.phi = phi
 
     h.cao0_ca_ion = 2
-    h.cai0_ca_ion = 3e-6
-    h('nao = 115')
-    h('nai = 15')
+    h.cai0_ca_ion = 5e-6
 
-    h.ion_style("na_ion", 1, 2, 1, 0, 0) 
+    h.celsius = 16.3
 
     return comp
 
@@ -85,15 +82,15 @@ def run(tstop=10, dt=0.001):
 
 comp = create_comp('soma')
 
-# stim = h.IClamp(0.5, sec=comp)
-# stim.delay = 4
-# stim.dur = 0.1
-# stim.amp = 0.05
+stim = h.IClamp(0.5, sec=comp)
+stim.delay = 4
+stim.dur = 6.0
+stim.amp = 0.005
 
 varlist = ['v', 'ica', 'cai']
 ds = create_dumps(comp, varlist)
 
-run(20, 0.001)
+run(50, 0.001)
 
 plot_timeseries(ds, varlist)
 dump_to_file(ds, varlist)

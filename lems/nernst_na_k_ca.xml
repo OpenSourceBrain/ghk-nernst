@@ -137,15 +137,15 @@
   <!-- Simulation specifications -->
   <Simulation id="sim1" length="50ms" step="0.0001ms" target="net1">
 
-    <Display id="d1" title="Membrane Potential (mV)" timeScale="1ms" xmin="0" xmax="20" ymin="-80" ymax="40">
+    <Display id="d1" title="Membrane Potential (mV)" timeScale="1ms" xmin="0" xmax="50" ymin="-80" ymax="40">
       <Line id="pop[0]/v" quantity="pop[0]/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
     </Display>
 
-    <Display id="d2" title="Ca current density (uA_per_cm2)" timeScale="1ms" xmin="0" xmax="20" ymin="0" ymax="3">
+    <Display id="d2" title="Ca current density (uA_per_cm2)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="3">
       <Line id="Ca iDensity" quantity="pop[0]/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
     </Display>
 
-    <Display id="d3" title="Internal Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="20" ymin="0" ymax="30">
+    <Display id="d3" title="Internal Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="30">
       <Line id="caConc" quantity="pop[0]/caConc" scale="1e-6 mM"  color="#ff0000" timeScale="1ms"/>
     </Display>
 
