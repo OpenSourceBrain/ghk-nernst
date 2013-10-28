@@ -23,7 +23,9 @@ def create_comp(name = 'soma'):
     comp(0.5).g_pas = 0.0003
     comp(0.5).e_pas = -53.1
 
-    pcabar = 2.5e-5
+    #pcabar = 2.5e-5
+    #This value is chosen to match steady state ICa to that obtained via GHK
+    pcabar = 2.1697e-04
     comp(0.5).cachannernst.pcabar = pcabar
     comp(0.5).HHna.gnabar = .120
     comp(0.5).HHk.gkbar = .036
