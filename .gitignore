@@ -2,3 +2,5 @@ nrn/x86_64
 \#*
 *.*~
 .ropeproject
+*.log
+.ipynb_checkpoints/
