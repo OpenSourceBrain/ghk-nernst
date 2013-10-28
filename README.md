@@ -9,8 +9,12 @@ Ohm's law + [Nernst
 Equation](http://en.wikipedia.org/wiki/Nernst_equation) to approximate
 its reversal potential.
 
-The same mechanisms are implemented in _neuron_ as a comparison. 
-
+The same mechanisms are implemented in _neuron_ as a comparison. Notice 
+that _neuron_ has builtin support for calculating reversal potentials
+via the Nersnt equation, which can be compared to our implementation written from
+scratch, see
+[native nrn](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernstnat_na_k_ca.py), 
+[from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernst_na_k_ca.py)
 
 
 Running tests
@@ -33,6 +37,7 @@ The following tests can be run to compare the usage of  GHK/Nernst from  _neuron
     python compare.py
    
 
+ 
 
 
 Definitions
