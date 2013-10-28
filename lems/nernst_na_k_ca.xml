@@ -128,13 +128,13 @@
   </cell>
 
   <!-- Point process: Current clamp -->
-  <!-- <pulseGenerator id="IClamp" delay="4ms" duration="0.1ms" amplitude="0.05nA" /> -->
+  <pulseGenerator id="IClamp" delay="4ms" duration="0.1ms" amplitude="0.05nA" />
 
 
   <!-- Create a single-cell network -->
   <network id="net1" type="networkWithTemperature" temperature = "16.3 degC">
     <population id="pop" component="na_k_ca" size="1"/>
-    <!-- <explicitInput target="pop[0]" input="IClamp"/> -->
+    <explicitInput target="pop[0]" input="IClamp"/>
   </network>
 
 

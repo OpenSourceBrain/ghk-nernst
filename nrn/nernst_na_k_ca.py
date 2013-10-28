@@ -33,7 +33,6 @@ def create_comp(name = 'soma'):
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
     phi = 3e-3
-    #phi = 0
     print 'phi times area to be used in lems', phi * area
     comp(0.5).cabuff.phi = phi
 
@@ -93,10 +92,10 @@ def run(tstop=10, dt=0.001):
 
 comp = create_comp('soma')
 
-# stim = h.IClamp(0.5, sec=comp)
-# stim.delay = 4
-# stim.dur = 0.1
-# stim.amp = 0.05
+stim = h.IClamp(0.5, sec=comp)
+stim.delay = 4
+stim.dur = 0.1
+stim.amp = 0.05
 
 
 varlist = ['v', 'ica', 'cai', 'cao', 'eca', 'oca_cachannernst']
