@@ -4,7 +4,7 @@ TITLE HH k channel channel
 
 NEURON {
 	SUFFIX HHk
-	USEION k READ ek WRITE ik
+	USEION k WRITE ik
 	RANGE gkbar, ik
 	GLOBAL inf, tau
 	THREADSAFE
@@ -17,14 +17,15 @@ UNITS {
 
 PARAMETER {
 	gkbar=.036 (mho/cm2) <0,1e9>
-	ek (mV) : -77 suggested, default set by NEURON
+	:ek (mV) : -77 suggested, default set by NEURON
+	ek=-77 (mV)
 }
 STATE {
 	n
 }
 ASSIGNED {
 	v (mV)
-	celsius (degC) : 16
+	celsius (degC) 
 	ik (mA/cm2)
 	inf
 	tau (ms)
