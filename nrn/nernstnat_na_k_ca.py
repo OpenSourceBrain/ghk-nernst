@@ -5,7 +5,6 @@ from nrn import *
 #from neuron import gui
 
 
-h.celsius = 16.3
 
 def create_comp(name = 'soma'):
     
@@ -26,22 +25,20 @@ def create_comp(name = 'soma'):
 
     pcabar = 2.5e-5
     comp(0.5).cachannernstnative.pcabar = pcabar
-    # comp(0.5).HHna.gnabar = .120
-    # comp(0.5).HHk.gkbar = .036
-    comp(0.5).HHna.gnabar = 0.
-    comp(0.5).HHk.gkbar = 0.
+    comp(0.5).HHna.gnabar = .120
+    comp(0.5).HHk.gkbar = .036
     
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
     phi = 3e-3
-    print 'phi times area to be used in lems', phi * area
     comp(0.5).cabuff.phi = phi
+    print '0.1 * phi * area to be used in lems', 0.1 * phi * area
 
 
     h.cao0_ca_ion = 2
     h.cai0_ca_ion = 5e-6
-    h('nao = 115')
-    h('nai = 15')
+
+    h.celsius = 16.3
 
     return comp
 
@@ -87,12 +84,12 @@ def run(tstop=10, dt=0.001):
 
 comp = create_comp('soma')
 
-# stim = h.IClamp(0.5, sec=comp)
-# stim.delay = 4
-# stim.dur = 0.1
-# stim.amp = 0.05
+stim = h.IClamp(0.5, sec=comp)
+stim.delay = 4
+stim.dur = 6.0
+stim.amp = 0.005
 
-varlist = ['v', 'ica', 'cai', 'cao', 'eca', 'oca_cachannernstnative', 't1_cabuff', 't2_cabuff']
+varlist = ['v', 'ica', 'cai']
 ds = create_dumps(comp, varlist)
 
 run(50, 0.001)
