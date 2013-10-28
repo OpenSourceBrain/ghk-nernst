@@ -58,8 +58,8 @@
   <concentrationModel id="simple_decay" type="fixedFactorConcentrationModel"
                       restingConc="3e-6 mM"
                       decayConstant="1.0 ms"
-                      <!-- phi="9.54929658551e-03 mmolar_per_nA_per_ms"/> -->
-                      phi="0.0 mmolar_per_nA_per_ms"/>
+                      phi="9.54929658551e-03 mmolar_per_nA_per_ms"/>
+                      <!-- phi="0.0 mmolar_per_nA_per_ms"/> -->
                       <!-- this phi equals the phi from neuron divided by membrane area,
 			   and divided by 10 to account for different ica units -->
 
@@ -115,7 +115,8 @@
         <species id="ca"
                  ion="ca"
                  concentrationModel="simple_decay"
-                 initialConcentration="3e-6 mM"
+                 <!-- initialConcentration="3e-6 mM" -->
+                 initialConcentration="5e-6 mM"
                  initialExtConcentration="2 mM"/>
 
         <resistivity value="0.1 kohm_cm"/>

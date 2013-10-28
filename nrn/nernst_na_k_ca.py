@@ -32,14 +32,15 @@ def create_comp(name = 'soma'):
     
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
-    # phi = 3e-3
-    phi = 0
+    phi = 3e-3
+    #phi = 0
     print 'phi times area to be used in lems', phi * area
     comp(0.5).cabuff.phi = phi
 
 
     h.cao0_ca_ion = 2
-    h.cai0_ca_ion = 3e-6
+    #.cai0_ca_ion = 3e-6
+    h.cai0_ca_ion = 5e-6
     h('nao = 115')
     h('nai = 15')
 
