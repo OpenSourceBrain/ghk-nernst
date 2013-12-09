@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_40" class="java.beans.XMLDecoder">
+<java version="1.7.0_45" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -42,51 +42,7 @@ part of NeuroML or any standardised XML specification. -->
    </void>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.project.CellGroupsInfo">
-  <void property="internalData">
-   <void method="get">
-    <string>Cell Packing Adapter</string>
-    <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/>
-    </void>
-   </void>
-   <void method="get">
-    <string>Cell Type</string>
-    <void method="add">
-     <string>cylinder</string>
-    </void>
-   </void>
-   <void method="get">
-    <string>Priority</string>
-    <void method="add">
-     <int>10</int>
-    </void>
-   </void>
-   <void method="get">
-    <string>Colour</string>
-    <void method="add">
-     <object class="java.awt.Color">
-      <int>72</int>
-      <int>195</int>
-      <int>237</int>
-      <int>255</int>
-     </object>
-    </void>
-   </void>
-   <void method="get">
-    <string>Region Name</string>
-    <void method="add">
-     <string>Regions_1</string>
-    </void>
-   </void>
-   <void method="get">
-    <string>Cell Group Name</string>
-    <void method="add">
-     <string>CellGroup_1</string>
-    </void>
-   </void>
-  </void>
- </object>
+ <object class="ucl.physiol.neuroconstruct.project.CellGroupsInfo"/>
  <object class="ucl.physiol.neuroconstruct.project.SimPlotInfo">
   <void property="allSimPlots">
    <void method="add">
@@ -170,11 +126,6 @@ part of NeuroML or any standardised XML specification. -->
   <void property="allSimConfigs">
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
-     <void property="cellGroups">
-      <void method="add">
-       <string>CellGroup_1</string>
-      </void>
-     </void>
      <void property="description">
       <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string>
      </void>

@@ -4,3 +4,11 @@ nrn/x86_64
 .ropeproject
 *.log
 .ipynb_checkpoints/
+
+nc/generatedNeuroML
+nc/generatedMOOSE
+nc/generatedGENESIS
+nc/generatedNEURON
+nc/simulations
+nc/savedNetworks
+
