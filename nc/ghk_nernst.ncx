@@ -165,9 +165,6 @@ part of NeuroML or any standardised XML specification. -->
      <void property="minValue">
       <float>-90.0</float>
      </void>
-     <void property="plotAndOrSave">
-      <string>Plot and save</string>
-     </void>
      <void property="plotReference">
       <string>GHK_v</string>
      </void>
@@ -192,9 +189,6 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="minValue">
       <float>-90.0</float>
-     </void>
-     <void property="plotAndOrSave">
-      <string>Plot and save</string>
      </void>
      <void property="plotReference">
       <string>Nernst_v</string>
@@ -284,7 +278,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>ca_chan_nml2:CURR_DENS:ca</string>
+      <string>ica</string>
      </void>
     </object>
    </void>
@@ -312,7 +306,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>ca_chan_nml2:CURR_DENS:ca</string>
+      <string>ica</string>
      </void>
     </object>
    </void>
@@ -344,21 +338,31 @@ part of NeuroML or any standardised XML specification. -->
    </object>
   </void>
  </object>
- <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings"/>
+ <object class="ucl.physiol.neuroconstruct.neuron.NeuronSettings">
+  <void property="varTimeStep">
+   <boolean>true</boolean>
+  </void>
+ </object>
  <object class="ucl.physiol.neuroconstruct.genesis.GenesisSettings"/>
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.025</float>
+   <float>0.001</float>
   </void>
   <void property="duration">
-   <float>100.0</float>
+   <float>50.0</float>
+  </void>
+  <void property="globalRa">
+   <float>350.0</float>
   </void>
   <void property="reference">
-   <string>Sim_2</string>
+   <string>Sim_28</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
+  </void>
+  <void property="temperature">
+   <float>16.3</float>
   </void>
   <void property="whatToRecord">
    <int>2</int>
@@ -430,6 +434,38 @@ part of NeuroML or any standardised XML specification. -->
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.IClampSettings">
+     <void property="amp">
+      <void property="fixedNum">
+       <float>0.005</float>
+      </void>
+     </void>
+     <void property="cellGroup">
+      <string>test</string>
+     </void>
+     <void property="del">
+      <void property="fixedNum">
+       <float>4.0</float>
+      </void>
+     </void>
+     <void id="NumberGenerator2" property="dur">
+      <void class="ucl.physiol.neuroconstruct.utils.NumberGenerator" method="getField">
+       <string>numberType</string>
+       <void method="set">
+        <object idref="NumberGenerator2"/>
+        <int>11</int>
+       </void>
+      </void>
+      <void property="fixedNum">
+       <float>6.0</float>
+      </void>
+     </void>
+     <void property="reference">
+      <string>Input_0</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -437,9 +473,6 @@ part of NeuroML or any standardised XML specification. -->
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
-      <void method="add">
-       <string>GHK</string>
-      </void>
       <void method="add">
        <string>Nernst</string>
       </void>
@@ -449,7 +482,7 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="inputs">
       <void method="add">
-       <string>IClamp_GHK</string>
+       <string>IClamp_Nernst</string>
       </void>
      </void>
      <void property="name">
@@ -457,7 +490,10 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="plots">
       <void method="add">
-       <string>GHK_v</string>
+       <string>Nernst_ca</string>
+      </void>
+      <void method="add">
+       <string>Nernst_ica</string>
       </void>
       <void method="add">
        <string>Nernst_v</string>
