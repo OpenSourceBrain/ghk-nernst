@@ -5,10 +5,7 @@ nrn/x86_64
 *.log
 .ipynb_checkpoints/
 
-nc/generatedNeuroML
-nc/generatedMOOSE
-nc/generatedGENESIS
-nc/generatedNEURON
+nc/generated*
 nc/simulations
 nc/savedNetworks
 
