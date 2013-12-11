@@ -3,7 +3,7 @@ TITLE HH sodium channel
 
 NEURON {
 	SUFFIX HHna
-	USEION na READ ena WRITE ina
+	USEION na WRITE ina
 	RANGE gnabar, ina
 	GLOBAL minf, hinf, mtau, htau
 	THREADSAFE
@@ -16,6 +16,7 @@ UNITS {
 
 PARAMETER {
 	gnabar=.120 (mho/cm2) <0,1e9>
+	ena=50.799202 (mV)
 }
 
 STATE {
@@ -25,7 +26,6 @@ STATE {
 ASSIGNED {
 	v (mV)
 	celsius (degC) : 6.3
-	ena (mV)
 	ina (mA/cm2)
 	minf hinf
 	mtau (ms)
@@ -78,7 +78,7 @@ FUNCTION expM1(x,y) {
 }
 
 PROCEDURE rates(v(mV)) {LOCAL a, b
-	TABLE minf, hinf, mtau, htau DEPEND celsius FROM -100 TO 100 WITH 200
+	:TABLE minf, hinf, mtau, htau DEPEND celsius FROM -100 TO 100 WITH 200
 	a = alp(v,0)  b=bet(v,0)
 	mtau = 1/(a + b)
 	minf = a/(a + b)

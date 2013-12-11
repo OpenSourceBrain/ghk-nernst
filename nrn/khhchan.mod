@@ -4,7 +4,7 @@ TITLE HH k channel channel
 
 NEURON {
 	SUFFIX HHk
-	USEION k READ ek WRITE ik
+	USEION k WRITE ik
 	RANGE gkbar, ik
 	GLOBAL inf, tau
 	THREADSAFE
@@ -17,14 +17,15 @@ UNITS {
 
 PARAMETER {
 	gkbar=.036 (mho/cm2) <0,1e9>
-	ek (mV) : -77 suggested, default set by NEURON
+	:ek (mV) : -77 suggested, default set by NEURON
+	ek=-77 (mV)
 }
 STATE {
 	n
 }
 ASSIGNED {
 	v (mV)
-	celsius (degC) : 16
+	celsius (degC) 
 	ik (mA/cm2)
 	inf
 	tau (ms)
@@ -68,7 +69,7 @@ FUNCTION expM1(x,y) {
 
 
 PROCEDURE rate(v) {LOCAL a, b :rest = -70
-	TABLE inf, tau DEPEND celsius FROM -100 TO 100 WITH 200
+	:TABLE inf, tau DEPEND celsius FROM -100 TO 100 WITH 200
 		a = alp(v)  b=bet(v)
 		tau = 1/(a + b)
 		inf = a/(a + b)

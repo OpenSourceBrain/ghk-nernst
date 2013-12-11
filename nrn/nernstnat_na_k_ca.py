@@ -12,7 +12,7 @@ def create_comp(name = 'soma'):
 
     comp.insert('HHna')
     comp.insert('HHk')
-    comp.insert('cachannernst')
+    comp.insert('cachannernstnative')
     comp.insert('cabuff')
     comp.insert('pas')
 
@@ -24,9 +24,9 @@ def create_comp(name = 'soma'):
     comp(0.5).e_pas = -53.1
 
     #pcabar = 2.5e-5
-    #This value is chosen to match steady state ICa to that obtained via GHK
+    # chosen to match steady state iCa with that obtained via GHK
     pcabar = 2.1697e-04
-    comp(0.5).cachannernst.pcabar = pcabar
+    comp(0.5).cachannernstnative.pcabar = pcabar
     comp(0.5).HHna.gnabar = .120
     comp(0.5).HHk.gkbar = .036
     
@@ -34,16 +34,13 @@ def create_comp(name = 'soma'):
     area = h.area(0.5)
     phi = 3e-3
     comp(0.5).cabuff.phi = phi
-    print '0.1 * phi * area to be used in lems', 0.1 * phi * area 
+    print '0.1 * phi * area to be used in lems', 0.1 * phi * area
 
 
     h.cao0_ca_ion = 2
     h.cai0_ca_ion = 5e-6
 
     h.celsius = 16.3
-    
-    #we don't need nrn to calculate the nernst potential for ca
-    h.ion_style("ca_ion", 3, 0, 0, 0, 1) 
 
     return comp
 
@@ -69,7 +66,7 @@ def create_dumps(section, varlist):
     return recordings 
 
 
-def dump_to_file(vdict, varlist, fname='/tmp/nrn_nernst.dat'):
+def dump_to_file(vdict, varlist, fname='/tmp/nrn_natnernst.dat'):
     from numpy import savetxt, array
 
     vnames = ['t'] + varlist
@@ -94,8 +91,6 @@ stim.delay = 4
 stim.dur = 6.0
 stim.amp = 0.005
 
-
-#varlist = ['v', 'ica', 'cai', 'oca_cachannernst', 'm_HHna', 'h_HHna', 'n_HHk']
 varlist = ['v', 'ica', 'cai']
 ds = create_dumps(comp, varlist)
 

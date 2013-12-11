@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<neuroml xmlns=  "http://www.neuroml.org/schema/neuroml2" xmlns:xsi=  "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd" id = "ca_chan_nml2">
+
+  <ionChannel id="ca_chan_nml2" type="ionChannelHH" conductance="10pS" species="ca">
+
+    <gateHHrates id="p" instances="2">
+      <!-- the nrn example uses a hardcoded "taufactor", disregarding the q10 calculations -->
+      <q10Settings type="q10Fixed" fixedQ10="0.5" experimentalTemp="6.3 degC"/>
+      <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
+      <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
+    </gateHHrates>
+  </ionChannel>
+
+</neuroml>

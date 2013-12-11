@@ -1,14 +1,29 @@
-* Minimal example
-  simple nrn script with ghk Ca mechanism
-  - [X] remove Ca diffusion and replace with simple exp decay
-  - [?] test neuron's ghk routine instead of doing everything from scratch
-         apparently ghk can't be used from nmodl, full implementation thus kept
-  - [X] check eqs: neuron == wikipedia == hille
+* DONE Minimal example
+simple nrn script with ghk Ca mechanism
+nrn/ghk_na_k_ca.py
+- [X] remove Ca diffusion and replace with simple exp decay
+- [?] test neuron's ghk routine instead of doing everything from scratch
+       apparently ghk can't be used from nmodl, full implementation thus kept
+- [X] check eqs: neuron == wikipedia == hille
+- 
 
-* lems
-  - [ ] test existing ghk (hardcoded for Ca)
-  - [ ] generalize to any ion
+* TODO lems
+lems/ghk_na_k_ca.xml
+- [X] test existing ghk (hardcoded for Ca). Issue, see discussions below
+- [ ] test existing nernst (hardcoded for Ca). 
+- [ ] generalize both to any ion
+       will probably require changes to lems -- discussed with Robert and
+       Padraig but no consensus yet
+  
+** DONE discuss
+- initialization issues if CaConc dynamics is not defined in terms
+of conditional variables ([Ca++]i(0) is NaN and the interpreter
+stops when calculating the dynamics). Circumventend by imposing
+condition Ca > 0 ? x : 0
 
 
+* TODO nC
+- [X] project with nrn/channelml channels
+- [ ] write doc for using Nernst/GHK from nC (setting pars)
 
   

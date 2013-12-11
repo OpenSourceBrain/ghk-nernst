@@ -2,15 +2,13 @@
 
 from neuron import *
 from nrn import *
-from neuron import gui
+#from neuron import gui
 
 
-h.celsius = 16.3
 
 def create_comp(name = 'soma'):
     
-    h('create ' + name)
-    comp = h.__getattribute__(name)
+    comp = h.Section('soma')
 
     comp.insert('HHna')
     comp.insert('HHk')
@@ -32,82 +30,67 @@ def create_comp(name = 'soma'):
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
     phi = 3e-3
-    print 'phi times area to be used in lems', phi * area
+    print '0.1 * phi * area to be used in lems', 0.1 * phi * area 
     comp(0.5).cabuff.phi = phi
 
-    h('cao0_ca_ion = 2')
-    h('cai0_ca_ion = 3e-6')
-    h('nao = 115')
-    h('nai = 15')
+    h.cao0_ca_ion = 2
+    h.cai0_ca_ion = 5e-6
 
-    h.ion_style("na_ion", 1, 2, 1, 0, 0) 
+    h.celsius = 16.3
 
     return comp
 
-
-def create_graphs(name):
-    g_v = h.Graph()
-    g_v.size(0,5,-80,40)
-    h.graphList[0].append(g_v)
-    g_v.addexpr(name + '.v(0.5)', 1, 1, 0.8, 0.9, 2)
-
-    g_ica = h.Graph()
-    g_ica.size(0,5,-0.04,0.02)
-    h.graphList[0].append(g_ica)
-    g_ica.addexpr(name + ".ica", 1, 1, 0.49214, 0.971132, 2)
-    g_ica.addexpr(name + ".ica_cachanghk", 4, 1, 2.50949, 0.00180314, 1)
-
-    g_ca = h.Graph()
-    g_ca.size(0,5,0,0.5e-4)
-    h.graphList[0].append(g_ca)
-    g_ca.addexpr(name + ".cai", 2, 1, 0.367087, 0.966017, 2)
-
-    g_na = h.Graph()
-    g_na.size(0,5,0,20)
-    h.graphList[0].append(g_na)
-    g_na.addexpr(name + ".nai", 2, 1, 0.367087, 0.966017, 2)
     
-
+def plot_timeseries(vdict, varlist):
+    from pylab import plot, show, figure, title
+    t = vdict['t']
+    for n in varlist:
+        figure()
+        plot(t, vdict[n], label=n)
+        title(n)
     
-def create_dumps(secname, varlist):
-    h('objref t_vec')
-    h('t_vec = new Vector()')
-    h('t_vec.record(&t)')
+    show()
 
-    for vv in varlist:
-        v = vv[:vv.index('(')] + '_vec' 
-        h('objref ' + v)
-        h(v + " = new Vector()")
-        h(v + '.record(&' + secname + '.' + vv + ')')
-        
-        
-def get_dumps(varlist):
-    from numpy import c_
-    pvs = [h.t_vec.to_python()]
-    for vv in varlist:
-        v = vv[:vv.index('(')] + '_vec' 
-        pvs.append(h.__getattribute__(v).to_python())
-    return c_[pvs[:]].T
+def create_dumps(section, varlist):
+    recordings = {n: h.Vector() for n in varlist}
+
+    for (vn, v) in recordings.iteritems():
+        v.record(section(0.5).__getattribute__('_ref_' + vn))
+    
+    recordings['t'] = h.Vector()
+    recordings['t'].record(h._ref_t)
+    return recordings 
+
+
+def dump_to_file(vdict, varlist, fname='/tmp/nrn_ghk.dat'):
+    from numpy import savetxt, array
+
+    vnames = ['t'] + varlist
+    X = array([vdict[x].to_python() for x in vnames]).T
+    savetxt(fname, X)
+
+
+def run(tstop=10, dt=0.001):
+    h.dt = dt
+    h.finitialize(-65)
+    h.fcurrent()
+    h.frecord_init()
+    while h.t < tstop:
+        h.fadvance()
+
 
 
 comp = create_comp('soma')
-name = comp.name()
 
 stim = h.IClamp(0.5, sec=comp)
 stim.delay = 4
-stim.dur = 0.1
-stim.amp = 0.05
+stim.dur = 6.0
+stim.amp = 0.005
 
-varlist = ['v(0.5)', 'ica(0.5)', 'cai(0.5)']
-create_graphs(name)
-create_dumps(name, varlist)
+varlist = ['v', 'ica', 'cai']
+ds = create_dumps(comp, varlist)
 
-h.tstop = 10
-h.tstop_changed()
-h.dt = 0.0001
-h.setdt(0.0001)
-h.run()
+run(50, 0.001)
 
-v = get_dumps(varlist)
-from numpy import savetxt
-savetxt('/tmp/nrnghk.dat', v)
+plot_timeseries(ds, varlist)
+dump_to_file(ds, varlist)

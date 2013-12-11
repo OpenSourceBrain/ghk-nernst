@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://morphml.org/neuroml/schema" xmlns:meta="http://morphml.org/metadata/schema" xmlns:mml="http://morphml.org/morphml/schema" xmlns:bio="http://morphml.org/biophysics/schema" xmlns:net="http://morphml.org/networkml/schema" lengthUnits="micrometer">
+
+<meta:notes>
+
+NeuroML (level 3) description of a cell null generated with project: ghk_nernst saved with neuroConstruct v1.7.0 on: 19:58:47, 09-Oct-13
+
+</meta:notes>
+
+<meta:properties/>
+
+<cells><cell id="na_k_ca">
+<meta:notes>Sample cell with HH Na+/K+ and Ca++ channel/buffer to test the GHK ComponentType</meta:notes>
+<meta:morphology id="just_a_cylinder">
+<meta:segment id="0" name="Soma">
+<meta:proximal x="0.0" y="0.0" z="0.0" diameter="1.0"></meta:proximal>
+<meta:distal x="0.0" y="0.0" z="10.0" diameter="1.0"></meta:distal>
+</meta:segment>
+<meta:segmentGroup id="Soma">
+<meta:member segment="0"></meta:member>
+</meta:segmentGroup>
+<meta:segmentGroup id="all">
+<meta:include segmentGroup="Soma"></meta:include>
+</meta:segmentGroup>
+<meta:segmentGroup id="soma_group">
+<meta:include segmentGroup="Soma"></meta:include>
+</meta:segmentGroup>
+</meta:morphology>
+<meta:biophysicalProperties id="biophys">
+<meta:membraneProperties>
+<meta:channelDensity condDensity="0.12 S_per_cm2" id="na_all" ionChannel="na_chan" erev="50.799202 mV" ion="na"></meta:channelDensity>
+<meta:channelDensity condDensity="0.036 S_per_cm2" id="k_all" ionChannel="k_chan" erev="-77.0 mV" ion="k"></meta:channelDensity>
+<meta:channelDensity condDensity="0.0003 S_per_cm2" id="passive" ionChannel="leak" erev="-53.1 mV" ion="non_specific"></meta:channelDensity>
+<meta:channelDensityGHK permeability="2.5e-8 m_per_s" id="ca_all" ionChannel="ca_chan" ion="ca"></meta:channelDensityGHK>
+<meta:specificCapacitance value="1.0 uF_per_cm2"></meta:specificCapacitance>
+<meta:initMembPotential value="-65.0 mV"></meta:initMembPotential>
+<meta:spikeThresh value="0 mV"></meta:spikeThresh>
+</meta:membraneProperties>
+<meta:intracellularProperties>
+<meta:species id="ca" ion="ca" concentrationModel="simple_decay" initialConcentration="3e-6 mM" initialExtConcentration="2 mM"></meta:species>
+<meta:resistivity value="0.1 kohm_cm"></meta:resistivity>
+</meta:intracellularProperties>
+</meta:biophysicalProperties>
+</cell>
+</cells></neuroml>
