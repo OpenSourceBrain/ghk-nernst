@@ -59,11 +59,6 @@
                       restingConc="3e-6 mM"
                       decayConstant="1.0 ms"
                       rho="3e-1 mol_per_m_per_A_per_s"/>
-                      <!-- rho="3e-3 mol_per_m_per_A_per_s"/> -->
-                      <!-- phi="9.54929658551e-03 mmolar_per_nA_per_ms"/> -->
-                      <!-- this phi equals the phi from neuron multiplied by the membrane area,
-			   and divided by 10 to account for different ica units -->
-
 
   <!-- Cellular properties -->
   <cell id="na_k_ca">
@@ -100,7 +95,6 @@
         <channelDensity condDensity="0.036 S_per_cm2" id="k_all" ionChannel="k_chan" erev="-77.0 mV" ion="k"/>
         <channelDensity condDensity="0.0003 S_per_cm2" id="passive" ionChannel="leak" erev="-53.1 mV" ion="non_specific"/>
         <channelDensityGHK permeability="2.5e-7 m_per_s" id="ca_all" ionChannel="ca_chan" ion="ca"/>
-        <!-- <channelDensityNernst condDensity="2.5e-5 S_per_cm2" id="ca_all" ionChannel="ca_chan" ion="ca"/> -->
 
         <specificCapacitance value="1.0 uF_per_cm2"/>
         <initMembPotential value="-65.0 mV"/>

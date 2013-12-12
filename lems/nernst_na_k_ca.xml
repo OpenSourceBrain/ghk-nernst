@@ -59,10 +59,6 @@
                       restingConc="3e-6 mM"
                       decayConstant="1.0 ms"
                       rho="3e-1 mol_per_m_per_A_per_s"/>
-                      <!-- phi="9.54929658551e-03 mmolar_per_nA_per_ms"/> -->
-                      <!-- this phi equals the phi from neuron multiplied by the membrane area,
-			   and divided by 10 to account for different ica units -->
-
 
   <!-- Cellular properties -->
   <cell id="na_k_ca">
