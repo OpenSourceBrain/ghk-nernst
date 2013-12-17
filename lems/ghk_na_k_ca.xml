@@ -56,6 +56,7 @@
   
   <!-- Intracellular Calcium dynamics -->
   <concentrationModel id="simple_decay" type="fixedFactorConcentrationModel"
+                      ion="ca"
                       restingConc="3e-6 mM"
                       decayConstant="1.0 ms"
                       rho="3e-1 mol_per_m_per_A_per_s"/>
@@ -132,7 +133,7 @@
     </population>
 
     <inputList id="IClamp" component="IClamp" population="pop">
-            <input id="0" target="../pop/0/na_k_ca" destination="synapses"/>
+      <input id="0" target="../pop/0/na_k_ca" destination="synapses"/>
     </inputList>
 
     <!-- <population id="pop" component="na_k_ca" size="1"/> -->
