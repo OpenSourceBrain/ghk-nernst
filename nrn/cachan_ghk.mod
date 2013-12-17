@@ -24,7 +24,7 @@ UNITS {
 	:R = 8.3134 (joule/degC)
 	:boris: bypass neuron's faraday const
 	: FARADAY = (faraday) (coulomb)
-	FARADAY = (96485.3) (coulomb)
+	FARADAY = 96485.3 (coulomb)
 	R = (k-mole) (joule/degC)
 }
 

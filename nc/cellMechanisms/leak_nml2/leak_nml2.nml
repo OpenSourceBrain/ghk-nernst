@@ -2,6 +2,6 @@
 
 <neuroml xmlns=  "http://www.neuroml.org/schema/neuroml2" xmlns:xsi=  "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd" id = "leak_nml2">
 
-<ionChannel id="leak_nml2" type="ionChannelPassive" conductance="10pS"/> 
+<ionChannel id="leak_nml2" type="ionChannelPassive" conductance="10pS" species="non_specific"/> 
 
 </neuroml>

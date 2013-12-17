@@ -356,7 +356,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>350.0</float>
   </void>
   <void property="reference">
-   <string>Sim_28</string>
+   <string>Sim_30</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -474,7 +474,7 @@ part of NeuroML or any standardised XML specification. -->
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
      <void property="cellGroups">
       <void method="add">
-       <string>Nernst</string>
+       <string>GHK</string>
       </void>
      </void>
      <void property="description">
@@ -482,7 +482,7 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="inputs">
       <void method="add">
-       <string>IClamp_Nernst</string>
+       <string>IClamp_GHK</string>
       </void>
      </void>
      <void property="name">
@@ -490,13 +490,13 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="plots">
       <void method="add">
-       <string>Nernst_ca</string>
+       <string>GHK_ca</string>
       </void>
       <void method="add">
-       <string>Nernst_ica</string>
+       <string>GHK_ica</string>
       </void>
       <void method="add">
-       <string>Nernst_v</string>
+       <string>GHK_v</string>
       </void>
      </void>
      <void property="simDuration">

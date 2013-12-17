@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="Physiological Units">
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="SI Units">
 
   <ion name="ca" charge="2" role="SignallingSubstance">
     <meta:notes>Signifies that the ion is involved in a process which alters its concentration</meta:notes>
@@ -13,7 +13,7 @@
     
         <!-- 3e-6 mM = 3e-12 mol/cm^3  and 1ms -->
 
-    <decaying_pool_model resting_conc="3e-12" decay_constant="1"> 
+    <decaying_pool_model resting_conc="3e-12" decay_constant="0.001"> 
 
       <fixed_pool_info>
         <phi>3e-3</phi>   
