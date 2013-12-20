@@ -278,7 +278,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>ica</string>
+      <string>ca_chan_nml2:CURR_DENS:ca</string>
      </void>
     </object>
    </void>
@@ -306,7 +306,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>ica</string>
+      <string>ca_chan_nml2:CURR_DENS:ca</string>
      </void>
     </object>
    </void>
@@ -356,7 +356,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>350.0</float>
   </void>
   <void property="reference">
-   <string>Sim_45</string>
+   <string>Sim_52</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
