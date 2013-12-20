@@ -39,6 +39,14 @@ The following tests can be run to compare the usage of  GHK/Nernst from  _neuron
     python compare.py
    
 
+NeuroConstruct
+--------------
+
+Recent versions of neuroConstruct support GHK, generating NeuroML2 and
+NEURON code accordingly. In order to use the GHK flux equation instead
+of Ohm's law for a particular mechanism, set an extra parameter
+GHK_permeability (in m/s) using the *Edit Density Mechs* dialog.
+![Image](./img/nc_ghk.png?raw=true)
  
 
 
