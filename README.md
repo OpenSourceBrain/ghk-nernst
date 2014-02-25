@@ -1,7 +1,7 @@
-ghk-nernst
-==========
+GHK & Nernst examples
+=====================
 
-Sample lems files implementing a single compartment model, containg HH
+Sample LEMS files implementing a single compartment model, containg HH
 type Na+/K+ channels, a Ca++ channel and pool. The Calcium current
 through the channel can be calculated either through the [GHK flux
 equation](http://en.wikipedia.org/wiki/GHK_flux_equation), or using
@@ -9,20 +9,20 @@ Ohm's law + [Nernst
 Equation](http://en.wikipedia.org/wiki/Nernst_equation) to approximate
 its reversal potential.
 
-The same mechanisms are implemented in _neuron_ as a comparison. Notice 
-that _neuron_ has builtin support for calculating reversal potentials
-via the Nersnt equation, which can be compared to our implementation written from
+The same mechanisms are implemented in _NEURON_ as a comparison. Notice 
+that _NEURON_ has built in support for calculating reversal potentials
+via the Nernst equation, which can be compared to our implementation written from
 scratch by running
-[native nrn](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernstnat_na_k_ca.py), 
+[Native NEURON](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernstnat_na_k_ca.py), 
 [from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernst_na_k_ca.py); see 
-also [native nernst modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst_native.mod) and 
+also [native Nernst modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst_native.mod) and 
 [from scratch modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst.mod)
 
 
 Running tests
 -------------
 
-The following tests can be run to compare the usage of  GHK/Nernst from  _neuron_/_lems_:
+The following tests can be run to compare the usage of  GHK/Nernst from  _NEURON_/_LEMS_:
    
 
     git clone git@github.com:OpenSourceBrain/ghk-nernst.git
@@ -39,7 +39,7 @@ The following tests can be run to compare the usage of  GHK/Nernst from  _neuron
     python compare.py
    
 
-NeuroConstruct
+neuroConstruct
 --------------
 
 Recent versions of neuroConstruct support GHK, generating NeuroML2 and
