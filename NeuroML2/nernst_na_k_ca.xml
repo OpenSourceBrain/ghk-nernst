@@ -142,7 +142,7 @@
 
 
   <!-- Simulation specifications -->
-  <Simulation id="sim1" length="50ms" step="0.0001ms" target="net1">
+  <Simulation id="sim1" length="50ms" step="0.001ms" target="net1">
 
     <Display id="d1" title="Membrane Potential (mV)" timeScale="1ms" xmin="0" xmax="50" ymin="-80" ymax="40">
       <!-- <Line id="pop[0]/v" quantity="pop[0]/v" scale="1mV"  color="#ffffff" timeScale="1ms"/> -->

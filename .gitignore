@@ -1,11 +1,11 @@
-nrn/x86_64
+NEURON/x86_64
 \#*
 *.*~
 .ropeproject
 *.log
 .ipynb_checkpoints/
 
-nc/generated*
-nc/simulations
-nc/savedNetworks
+neuroConstruct/generated*
+neuroConstruct/simulations
+neuroConstruct/savedNetworks
 
