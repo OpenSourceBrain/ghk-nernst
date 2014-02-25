@@ -1,7 +1,7 @@
 GHK & Nernst examples
 =====================
 
-Sample LEMS files implementing a single compartment model, containg HH
+Sample [LEMS & NeuroML 2](https://github.com/OpenSourceBrain/ghk-nernst/tree/master/NeuroML2) files implementing a single compartment model, containg HH
 type Na+/K+ channels, a Ca++ channel and pool. The Calcium current
 through the channel can be calculated either through the [GHK flux
 equation](http://en.wikipedia.org/wiki/GHK_flux_equation), or using
@@ -13,10 +13,10 @@ The same mechanisms are implemented in _NEURON_ as a comparison. Notice
 that _NEURON_ has built in support for calculating reversal potentials
 via the Nernst equation, which can be compared to our implementation written from
 scratch by running
-[Native NEURON](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernstnat_na_k_ca.py), 
-[from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/nernst_na_k_ca.py); see 
-also [native Nernst modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst_native.mod) and 
-[from scratch modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/nrn/cachan_nernst.mod)
+[Native NEURON](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/nernstnat_na_k_ca.py), 
+[from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/nernst_na_k_ca.py); see 
+also [native Nernst modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/cachan_nernst_native.mod) and 
+[from scratch modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/cachan_nernst.mod)
 
 
 Running tests
@@ -46,7 +46,7 @@ Recent versions of neuroConstruct support GHK, generating NeuroML2 and
 NEURON code accordingly. In order to use the GHK flux equation instead
 of Ohm's law for a particular mechanism, set an extra parameter
 GHK_permeability (in m/s) using the *Edit Density Mechs* dialog.
-![Image](./img/nc_ghk.png?raw=true)
+![Image](./images/nc_ghk.png?raw=true)
  
 
 
