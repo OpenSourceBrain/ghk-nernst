@@ -1,4 +1,4 @@
-GHK & Nernst examples
+GHK & Nernst examples [![Build Status](https://travis-ci.org/OpenSourceBrain/ghk-nernst.png?branch=master)](https://travis-ci.org/OpenSourceBrain/ghk-nernst)
 =====================
 
 Sample [LEMS & NeuroML 2](https://github.com/OpenSourceBrain/ghk-nernst/tree/master/NeuroML2) files implementing a single compartment model, containg HH
