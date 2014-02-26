@@ -1,6 +1,8 @@
 language: python
 python: "2.7"
 
-install: '.travis/getnrn.sh'
+install: 
+  - '.travis/getnrn.sh'
+  - '.travis/getjnml.sh'
 
-script: true 
+script: true

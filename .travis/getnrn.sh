@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+cd $HOME
 mkdir neuron
 cd neuron
 hg clone http://www.neuron.yale.edu/hg/neuron/nrn
@@ -11,4 +12,7 @@ make install
 
 cd src/nrnpython
 sudo python setup.py install
+
+cd $HOME
+
 
