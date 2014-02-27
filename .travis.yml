@@ -5,4 +5,7 @@ install:
   - '.travis/getnrn.sh'
   - '.travis/getjnml.sh'
 
-script: true
+script: 
+  - 'cd $HOME'
+  - 'ls jNeuroMLJar/'
+  - 'ls neuron/nrn'
