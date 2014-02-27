@@ -11,8 +11,8 @@ make
 make install
 
 cd src/nrnpython
-#python setup.py install --prefix=$HOME/local
-pip install -e .
+python setup.py install
+#pip install -e .
 cd $HOME
 
 
