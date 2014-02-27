@@ -101,5 +101,6 @@ ds = create_dumps(comp, varlist)
 
 run(50, 0.001)
 
-plot_timeseries(ds, varlist)
+if os.environ.get('TRAVIS') is None:
+    plot_timeseries(ds, varlist)
 dump_to_file(ds, varlist)
