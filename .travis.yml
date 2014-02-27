@@ -15,7 +15,7 @@ env:
 script: 
   - echo $PATH
   - echo $PYTHONPATH
-  - cd $TRAVIS_BUILD_DIR/OpenSourceBrain/ghk-nernst/NEURON/
+  - cd $TRAVIS_BUILD_DIR/NEURON/
   - nrnivmodl
   - python nernstnat_na_k_ca.py
   - python nernst_na_k_ca.py
