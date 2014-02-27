@@ -10,12 +10,12 @@ install:
   - .travis/getjnml.sh
 
 env:
-  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages
-  - PATH=$PATH:$HOME/neuron/`arch`/bin
+  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages PATH=$PATH:$HOME/neuron/nrn/`arch`/bin
 
 script: 
   - echo $PATH
-  - cd TRAVIS_BUILD_DIR/OpenSourceBrain/ghk-nernst/NEURON/
+  - echo $PYTHONPATH
+  - cd $TRAVIS_BUILD_DIR/OpenSourceBrain/ghk-nernst/NEURON/
   - nrnivmodl
   - python nernstnat_na_k_ca.py
   - python nernst_na_k_ca.py
