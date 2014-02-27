@@ -10,7 +10,7 @@ install:
   - .travis/getjnml.sh
 
 env:
-  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages PATH=$PATH:$HOME/neuron/nrn/`arch`/bin:$HOME/jNeuroMLJar
+  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages PATH=$PATH:$HOME/neuron/nrn/`arch`/bin:$HOME/jNeuroMLJar JNML_HOME=$HOME/jNeuroMLJar
 
 script: 
   - echo $PATH
