@@ -7,6 +7,6 @@ install:
 
 script: 
   - cd $HOME
-  - cd NEURON/
+  - cd OpenSourceBrain/ghk-nernst/NEURON/
   - python nernstnat_na_k_ca.py
   - ls /tmp
