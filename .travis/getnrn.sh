@@ -8,11 +8,10 @@ cd nrn
 ./build.sh
 ./configure --prefix=`pwd` --without-iv --with-nrnpython=`python -c 'import sys; print sys.executable'`
 make
-make install
+sudo make install
 
 cd src/nrnpython
-sudo python setup.py install
-
+python setup.py install --prefix=$HOME/local
 cd $HOME
 
 

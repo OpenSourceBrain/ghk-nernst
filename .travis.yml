@@ -1,15 +1,22 @@
 language: python
 python: 2.7
 
+
+
 install: 
   - pwd
   - ls $HOME
   - .travis/getnrn.sh
   - .travis/getjnml.sh
 
+env:
+  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages
+  - PATH=$PATH:$HOME/neuron/`arch`/bin
+
 script: 
-  - cd $HOME/build/OpenSourceBrain/ghk-nernst/NEURON/
-  - $HOME/neuron/nrn/bin/nrnivmodl
+  - echo $PATH
+  - cd TRAVIS_BUILD_DIR/OpenSourceBrain/ghk-nernst/NEURON/
+  - nrnivmodl
   - python nernstnat_na_k_ca.py
   - python nernst_na_k_ca.py
   - ls /tmp
