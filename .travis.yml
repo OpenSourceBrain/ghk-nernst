@@ -10,7 +10,7 @@ install:
   - .travis/getjnml.sh
 
 env:
-  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages PATH=$PATH:$HOME/neuron/nrn/`arch`/bin
+  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages PATH=$PATH:$HOME/neuron/nrn/`arch`/bin:$HOME/jNeuroMLJar
 
 script: 
   - echo $PATH
@@ -19,4 +19,7 @@ script:
   - nrnivmodl
   - python nernstnat_na_k_ca.py
   - python nernst_na_k_ca.py
+  - cd $TRAVIS_BUILD_DIR/NeuroML2
+  - jnml ghk_na_k_ca.xml -nogui
+  - jnml nernst_na_k_ca.xml -nogui
   - ls /tmp
