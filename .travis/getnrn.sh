@@ -12,7 +12,7 @@ sudo make install
 
 cd src/nrnpython
 #python setup.py install --prefix=$HOME/local
-pip install -e .
+sudo pip install -e .
 cd $HOME
 
 
