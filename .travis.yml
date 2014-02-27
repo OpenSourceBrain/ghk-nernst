@@ -20,6 +20,6 @@ script:
   - python nernstnat_na_k_ca.py
   - python nernst_na_k_ca.py
   - cd $TRAVIS_BUILD_DIR/NeuroML2
-  - jnml ghk_na_k_ca.xml -nogui
-  - jnml nernst_na_k_ca.xml -nogui
+  - jnml LEMS_ghk_na_k_ca.xml -nogui
+  - jnml LEMS_nernst_na_k_ca.xml -nogui
   - ls /tmp

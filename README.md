@@ -32,8 +32,8 @@ The following tests can be run to compare the usage of  GHK/Nernst from  _NEURON
     ./nernst_na_k_ca.py
 
     cd ../NeuroML2
-    jnml ghk_na_k_ca.xml
-    jnml nernst_na_k_ca.xml
+    jnml LEMS_ghk_na_k_ca.xml
+    jnml LEMS_nernst_na_k_ca.xml
 
     cd ../
     python compare.py
