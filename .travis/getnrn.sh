@@ -11,8 +11,8 @@ make
 make install
 
 cd src/nrnpython
-sudo python setup.py install
-
+python setup.py install
+#pip install -e .
 cd $HOME
 
 
