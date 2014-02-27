@@ -26,12 +26,12 @@ The following tests can be run to compare the usage of  GHK/Nernst from  _NEURON
    
 
     git clone git@github.com:OpenSourceBrain/ghk-nernst.git
-    cd ghk-nernst/nrn/
+    cd ghk-nernst/NEURON/
     nrnivmodl
     ./ghk_na_k_ca.py
     ./nernst_na_k_ca.py
 
-    cd ../lems
+    cd ../NeuroML2
     jnml ghk_na_k_ca.xml
     jnml nernst_na_k_ca.xml
 
