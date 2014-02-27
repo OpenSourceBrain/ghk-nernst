@@ -8,7 +8,7 @@ install:
   - .travis/getjnml.sh
 
 script: 
-  - cd $HOME
+  - cd 
   - cd OpenSourceBrain/ghk-nernst/NEURON/
   - python nernstnat_na_k_ca.py
   - ls /tmp
