@@ -1,7 +1,9 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" 
-         id="ghk_na_k_ca">
+         id="ghk2_na_k_ca">
+    
+    <include href="channelDensityGHK2.xml"/>
 
     <ionChannel id="leak" type="ionChannelPassive" conductance="10pS" species="non_specific"/>
   
@@ -53,7 +55,7 @@
                       rho="3e-1 mol_per_m_per_A_per_s"/>
 
     <!-- Cellular properties -->
-    <cell id="na_k_ca">
+    <cell id="na_k_ca_ghk">
 
         <notes>Sample cell with HH Na+/K+ and Ca++ channel/buffer to test the GHK ComponentType</notes>
 
@@ -110,6 +112,66 @@
         </biophysicalProperties>
 
     </cell>
+    
+    
+    <cell id="na_k_ca_ghk2">
+
+        <notes>Sample cell with HH Na+/K+ and Ca++ channel/buffer to test the GHK2 ComponentType</notes>
+
+        <morphology id="just_a_cylinder">
+
+            <segment id="0" name="Soma">
+                <proximal x="0.0" y="0.0" z="0.0" diameter="1.0"/>
+                <distal x="0.0" y="0.0" z="10.0" diameter="1.0"/>
+            </segment>
+
+            <segmentGroup id="Soma">
+                <member segment="0"/>
+            </segmentGroup>
+
+            <segmentGroup id="all">
+                <include segmentGroup="Soma"/>
+            </segmentGroup>
+
+            <segmentGroup id="soma_group">
+                <include segmentGroup="Soma"/>
+            </segmentGroup>
+
+        </morphology>
+
+
+        <biophysicalProperties id="biophys">
+
+            <membraneProperties>
+
+                <channelDensity condDensity="0.12 S_per_cm2" id="na_all" ionChannel="na_chan" erev="50.799202 mV" ion="na"/>
+                <channelDensity condDensity="0.036 S_per_cm2" id="k_all" ionChannel="k_chan" erev="-77.0 mV" ion="k"/>
+                <channelDensity condDensity="0.0003 S_per_cm2" id="passive" ionChannel="leak" erev="-53.1 mV" ion="non_specific"/>
+                <channelDensityGHK2 condDensity="0.0007 S_per_cm2" id="ca_all" ionChannel="ca_chan" ion="ca"/>
+
+                <spikeThresh value="0 mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65.0 mV"/>
+
+            </membraneProperties>
+
+
+            <intracellularProperties>
+
+                <species id="ca"
+                 ion="ca"
+                 concentrationModel="simple_decay"
+                 initialConcentration="5e-6 mM"
+                 initialExtConcentration="2 mM"/>
+
+                <resistivity value="0.1 kohm_cm"/>
+
+            </intracellularProperties>
+
+        </biophysicalProperties>
+
+    </cell>
+    
 
     <!-- Point process: Current clamp -->
     <pulseGenerator id="IClamp" delay="4ms" duration="6.0ms" amplitude="0.005nA" />
@@ -117,14 +179,24 @@
 
     <!-- Create a single-cell network -->
     <network id="net1" type="networkWithTemperature" temperature = "16.3 degC">
-        <population id="pop" component="na_k_ca" type="populationList" size="1">
+        <population id="pop" component="na_k_ca_ghk" type="populationList" size="1">
             <instance id="0">
                 <location x="0" y="0" z="0"/>
             </instance>
         </population>
+        
+        <population id="pop2" component="na_k_ca_ghk2" type="populationList" size="1">
+            <instance id="0">
+                <location x="0" y="0" z="10"/>
+            </instance>
+        </population>
 
         <inputList id="IClamp" component="IClamp" population="pop">
-            <input id="0" target="../pop/0/na_k_ca" destination="synapses"/>
+            <input id="0" target="../pop/0/na_k_ca_ghk" destination="synapses"/>
+        </inputList>
+        
+        <inputList id="IClamp2" component="IClamp" population="pop2">
+            <input id="0" target="../pop2/0/na_k_ca_ghk2" destination="synapses"/>
         </inputList>
 
         <!-- <population id="pop" component="na_k_ca" size="1"/> -->
