@@ -1,0 +1,51 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.7.1 ../../LEMS/Schemas/LEMS/LEMS_v0.7.1.xsd">
+
+    <ComponentType name="channelDensityGHK2"
+        extends="baseChannelDensityCond"  
+        description="time varying conductance density, _gDensity, which is distributed on an area of the cell, producing a current density _iDensity (based on Jaffe et al. 1994)">
+        
+        <Requirement name="temperature" dimension="temperature"/>
+        <Requirement name="caConc" dimension="concentration"/>
+        <Requirement name="caConcExt" dimension="concentration"/>
+        
+        <Constant name="CONC_SCALE" dimension="concentration" value="1 mM"/>
+        <Constant name="R" dimension="idealGasConstantDims" value="8.3144621 J_per_K_per_mol"/>
+        <Constant name="zCa" dimension="none" value="2"/>
+        <Constant name="F" dimension="charge_per_mole" value="96485.3 C_per_mol"/>
+
+        <!-- TODO: Ensure Text elements are inherited from base type -->
+        <Text name="segmentGroup"/>
+
+        <Text name="ion"/> <!-- TODO: Ideally this needs to be a property of ionChannel only!
+                                But it's here as it makes it easier to select channelPopulations transmitting specific ions...-->
+        <Dynamics>
+            <DerivedVariable name="ca_conc_i" dimension="none" value="caConc / CONC_SCALE"/>
+            <DerivedVariable name="ca_conc_ext" dimension="none" value="caConcExt / CONC_SCALE"/>
+
+            <DerivedVariable name="channelf" dimension="none" select="ionChannel/fopen"/>
+            
+            <DerivedVariable name="gDensity" dimension="conductanceDensity" exposure="gDensity" value="condDensity * channelf"/>
+            
+            <DerivedVariable name="K" dimension="per_voltage" value="(zCa * F) / (R * temperature)"/>         
+            
+            <ConditionalDerivedVariable name="pOpen" dimension="voltage">
+                <Case condition="K*v .eq. 0" value="-1/K * (1 - (ca_conc_i/ca_conc_ext)*exp(K*v)) * (1 - (K*v)/2)"/>
+                <Case condition="K*v .neq. 0" value="-1/K * (1 - (ca_conc_i/ca_conc_ext)*exp(K*v)) * ((K*v) / (1 - exp(K*v)))"/>
+            </ConditionalDerivedVariable>
+
+            <ConditionalDerivedVariable name="iDensity"  dimension="currentDensity" exposure="iDensity">
+	            <Case condition="ca_conc_ext .gt. 0" value="gDensity * pOpen"/>
+	            <Case condition="ca_conc_ext .leq. 0" value="0"/>
+	    </ConditionalDerivedVariable>
+
+        </Dynamics>
+        
+        <Structure>
+            <ChildInstance component="ionChannel"/>
+        </Structure>
+        
+    </ComponentType>
+    
+</Lems>
