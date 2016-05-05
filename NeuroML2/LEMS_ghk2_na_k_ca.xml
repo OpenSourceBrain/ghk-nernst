@@ -17,17 +17,6 @@
   <!-- Simulation specifications -->
   <Simulation id="sim1" length="50ms" step="0.001ms" target="net1">
 
-    <Display id="d1" title="Membrane Potential (mV)" timeScale="1ms" xmin="0" xmax="50" ymin="-80" ymax="40">
-      <Line id="V GHK" quantity="pop/0/na_k_ca_ghk/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
-    </Display>
-
-    <Display id="d2" title="Ca current density (uA_per_cm2)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="3">
-      <Line id="Ca iDensity GHK" quantity="pop/0/na_k_ca_ghk/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
-    </Display>
-
-    <Display id="d3" title="Internal Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="45">
-      <Line id="caConc GHK" quantity="pop/0/na_k_ca_ghk/caConc" scale="1e-6 mM"  color="#ff00ff" timeScale="1ms"/>
-    </Display>
     
     <Display id="d4" title="Membrane Potential (mV)" timeScale="1ms" xmin="0" xmax="50" ymin="-80" ymax="40">
       <Line id="V GHK" quantity="pop/0/na_k_ca_ghk/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
