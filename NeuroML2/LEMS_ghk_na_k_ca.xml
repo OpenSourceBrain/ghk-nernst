@@ -12,6 +12,7 @@
 
   
   <Include file="ghk_na_k_ca.nml"/>
+  <Include file="channelDensityGHK2.xml"/>
 
 
   <!-- Simulation specifications -->
@@ -22,10 +23,11 @@
     </Display>
 
     <Display id="d2" title="Ca current density (uA_per_cm2)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="3">
-      <Line id="Ca iDensity" quantity="pop/0/na_k_ca/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
+      <Line id="Ca iDensity GHK" quantity="pop/0/na_k_ca/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
+      <Line id="Ca iDensity GHK2" quantity="pop/0/na_k_ca/biophys/membraneProperties/ca_all2/iDensity" scale="1uA_per_cm2"  color="#ffff00" timeScale="1ms"/>
     </Display>
 
-    <Display id="d3" title="Internal Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="30">
+    <Display id="d3" title="Internal Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="45">
       <Line id="caConc" quantity="pop/0/na_k_ca/caConc" scale="1e-6 mM"  color="#ff0000" timeScale="1ms"/>
     </Display>
 
