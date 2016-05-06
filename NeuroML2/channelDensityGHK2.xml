@@ -32,11 +32,11 @@
             
             <ConditionalDerivedVariable name="pOpen" dimension="voltage">
                 <Case condition="K*v .eq. 0" value="-1/K * (1 - (ca_conc_i/ca_conc_ext)*exp(K*v)) * (1 - (K*v)/2)"/>
-                <Case condition="K*v .neq. 0" value="-1/K * (1 - (ca_conc_i/ca_conc_ext)*exp(K*v)) * ((K*v) / (1 - exp(K*v)))"/>
+                <Case condition="K*v .neq. 0" value="-1/K * (1 - (ca_conc_i/ca_conc_ext)*exp(K*v)) * ((K*v) / (exp(K*v) - 1))"/>
             </ConditionalDerivedVariable>
 
             <ConditionalDerivedVariable name="iDensity"  dimension="currentDensity" exposure="iDensity">
-	            <Case condition="ca_conc_ext .gt. 0" value="gDensity * pOpen"/>
+	            <Case condition="ca_conc_ext .gt. 0" value="-gDensity * pOpen"/>
 	            <Case condition="ca_conc_ext .leq. 0" value="0"/>
 	    </ConditionalDerivedVariable>
 
