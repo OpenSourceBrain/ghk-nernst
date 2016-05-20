@@ -5,7 +5,7 @@
     <ComponentType name="channelDensityGHK2"
         extends="baseChannelDensityCond"  
         description="time varying conductance density, _gDensity, which is distributed on an area of the cell, producing a current density _iDensity
-                    modified version of Jaffe et al. 1994 (Lawrence et al. 2006)">
+                    modified version of Jaffe et al. 1994 (Lawrence et al. 2006, Bezaire network)">
         
         <Requirement name="temperature" dimension="temperature"/>
         <Requirement name="caConc" dimension="concentration"/>
@@ -33,11 +33,11 @@
             <DerivedVariable name="tmp" dimension="none" value="(25 * T) / (293.15 * 2)"/>
             
             <ConditionalDerivedVariable name="pOpen" dimension="voltage">
-                <Case condition="V/tmp .eq. 0." value="tmp * 0.001 * (1 - (ca_conc_i/ca_conc_ext) * exp(V/tmp)) * (1 - (V/tmp)/2)"/>
-                <Case condition="V/tmp .neq. 0." value="tmp * 0.001 * (1 - (ca_conc_i/ca_conc_ext) * exp(V/tmp)) * ((V/tmp) / (exp(V/tmp) - 1))"/>
+                <Case condition="V/tmp .eq. 0." value="tmp * 1e-6 * (1 - ((ca_conc_i/ca_conc_ext) * exp(V/tmp))) * (1 - (V/tmp)/2)"/>
+                <Case condition="V/tmp .neq. 0." value="tmp * 1e-6 * (1 - ((ca_conc_i/ca_conc_ext) * exp(V/tmp))) * ((V/tmp) / (exp(V/tmp) - 1))"/>
             </ConditionalDerivedVariable>
 
-            <ConditionalDerivedVariable name="iDensity"  dimension="currentDensity" exposure="iDensity">
+            <ConditionalDerivedVariable name="iDensity" dimension="currentDensity" exposure="iDensity">
 	            <Case condition="ca_conc_ext .gt. 0" value="gDensity * pOpen"/>
 	            <Case condition="ca_conc_ext .leq. 0" value="0"/>
 	    </ConditionalDerivedVariable>
