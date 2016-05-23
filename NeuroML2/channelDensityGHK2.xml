@@ -33,8 +33,8 @@
             <DerivedVariable name="tmp" dimension="none" value="(25 * T) / (293.15 * 2)"/>
             
             <ConditionalDerivedVariable name="pOpen" dimension="voltage">
-                <Case condition="V/tmp .eq. 0." value="tmp * 1e-6 * (1 - ((ca_conc_i/ca_conc_ext) * exp(V/tmp))) * (1 - (V/tmp)/2)"/>
-                <Case condition="V/tmp .neq. 0." value="tmp * 1e-6 * (1 - ((ca_conc_i/ca_conc_ext) * exp(V/tmp))) * ((V/tmp) / (exp(V/tmp) - 1))"/>
+                <Case condition="V/tmp .eq. 0." value="tmp * 1e-3 * (1 - ((ca_conc_i/ca_conc_ext) * exp(V/tmp))) * (1 - (V/tmp)/2)"/>
+                <Case condition="V/tmp .neq. 0." value="tmp * 1e-3 * (1 - ((ca_conc_i/ca_conc_ext) * exp(V/tmp))) * ((V/tmp) / (exp(V/tmp) - 1))"/>
             </ConditionalDerivedVariable>
 
             <ConditionalDerivedVariable name="iDensity" dimension="currentDensity" exposure="iDensity">
