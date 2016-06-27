@@ -4,26 +4,8 @@ python: 2.7
 env:
     - OMV_ENGINE=PyNEURON
 
-  - PYTHONPATH=$PYTHONPATH:$HOME/local/lib/python/site-packages PATH=$PATH:$HOME/neuron/nrn/`arch`/bin:$HOME/jNeuroMLJar JNML_HOME=$HOME/jNeuroMLJar
-
 install: 
-  - pwd
-  - ls $HOME
-  - .travis/getnrn.sh
-  - .travis/getjnml.sh
-
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
 
-env:
-  
-
-script: 
-   
-  - omv all -V 
-  - echo $PATH
-  - echo $PYTHONPATH
-  
-  - cd $TRAVIS_BUILD_DIR/NeuroML2
-  - jnml LEMS_ghk_na_k_ca.xml -nogui
-  - jnml LEMS_nernst_na_k_ca.xml -nogui
-  - ls /tmp
+script:
+    - omv all -V
