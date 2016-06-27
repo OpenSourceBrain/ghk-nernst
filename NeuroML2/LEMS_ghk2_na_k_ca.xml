@@ -12,7 +12,6 @@
 
   
   <Include file="ghk2_na_k_ca.nml"/>
-  <Include file="channelDensityGHK2.xml"/>
 
   <!-- Simulation specifications -->
   <Simulation id="sim1" length="50ms" step="0.001ms" target="net1">
@@ -33,13 +32,13 @@
       <Line id="caConc GHK2" quantity="pop2/0/na_k_ca_ghk2/caConc" scale="1e-6 mM"  color="#ff0000" timeScale="1ms"/>
     </Display>
 
-    <OutputFile id="of0" fileName="/tmp/lems_ghk.dat">
+    <OutputFile id="of0" fileName="lems_ghk1.dat">
       <OutputColumn id="v" quantity="pop/0/na_k_ca_ghk/v"/>
       <OutputColumn id="ica" quantity="pop/0/na_k_ca_ghk/biophys/membraneProperties/ca_all/iDensity"/>
       <OutputColumn id="ca" quantity="pop/0/na_k_ca_ghk/caConc"/>
     </OutputFile>
     
-    <OutputFile id="of1" fileName="/tmp/lems_ghk2.dat">
+    <OutputFile id="of1" fileName="lems_ghk2.dat">
       <OutputColumn id="v" quantity="pop2/0/na_k_ca_ghk2/v"/>
       <OutputColumn id="ica" quantity="pop2/0/na_k_ca_ghk2/biophys/membraneProperties/ca_all/iDensity"/>
       <OutputColumn id="ca" quantity="pop2/0/na_k_ca_ghk2/caConc"/>
