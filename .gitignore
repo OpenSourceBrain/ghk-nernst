@@ -8,4 +8,5 @@ NEURON/x86_64
 neuroConstruct/generated*
 neuroConstruct/simulations
 neuroConstruct/savedNetworks
-
+/NEURON/nrn_ghk.dat
+/NEURON/nrn_nernst.dat

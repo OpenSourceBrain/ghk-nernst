@@ -1,0 +1,17 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: ghk_na_k_ca.py 
+engine: PyNEURON
+mep: .test.mep
+experiments:
+  Current clamp:
+    observables:
+      spike times:
+        file: 
+          path: nrn_ghk.dat
+          columns: [0,1]
+          scaling: [1, 1]
+        spike detection: 
+          method: threshold
+          threshold: 0
+        tolerance: 0

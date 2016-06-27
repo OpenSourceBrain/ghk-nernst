@@ -3,7 +3,7 @@
 from neuron import *
 from nrn import *
 #from neuron import gui
-
+import sys
 
 
 def create_comp(name = 'soma'):
@@ -69,7 +69,7 @@ def create_dumps(section, varlist):
     return recordings 
 
 
-def dump_to_file(vdict, varlist, fname='/tmp/nrn_nernst.dat'):
+def dump_to_file(vdict, varlist, fname='nrn_nernst.dat'):
     from numpy import savetxt, array
 
     vnames = ['t'] + varlist
@@ -101,6 +101,6 @@ ds = create_dumps(comp, varlist)
 
 run(50, 0.001)
 
-if os.environ.get('TRAVIS') is None:
+if not '-nogui' in sys.argv:
     plot_timeseries(ds, varlist)
 dump_to_file(ds, varlist)

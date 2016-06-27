@@ -3,6 +3,7 @@
 from neuron import *
 from nrn import *
 #from neuron import gui
+import sys
 
 
 
@@ -96,7 +97,7 @@ ds = create_dumps(comp, varlist)
 
 run(50, 0.001)
 
-if os.environ.get('TRAVIS') is None:
+if not '-nogui' in sys.argv:
     plot_timeseries(ds, varlist)
 dump_to_file(ds, varlist)
 
