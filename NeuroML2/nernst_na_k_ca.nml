@@ -60,7 +60,7 @@
 
     <morphology id="just_a_cylinder">
 
-      <segment id="0" name="Soma">
+      <segment id="0" name="SomaSeg">
         <proximal x="0.0" y="0.0" z="0.0" diameter="1.0"/>
         <distal x="0.0" y="0.0" z="10.0" diameter="1.0"/>
       </segment>

@@ -10,10 +10,8 @@ neuroConstruct/simulations
 neuroConstruct/savedNetworks
 /NEURON/nrn_ghk.dat
 /NEURON/nrn_nernst.dat
-/NeuroML2/lems_ghk.dat
 /NeuroML2/*.mod
 /NeuroML2/*.hoc
 /NeuroML2/*nrn.py
 /NeuroML2/x86_64
-/NeuroML2/lems_ghk1.dat
-/NeuroML2/lems_ghk2.dat
+/NeuroML2/*.dat
