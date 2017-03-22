@@ -127,8 +127,6 @@
             <input id="0" target="../pop/0/na_k_ca" destination="synapses"/>
         </inputList>
 
-        <!-- <population id="pop" component="na_k_ca" size="1"/> -->
-        <!-- <explicitInput target="pop[0]" input="IClamp"/> -->
     </network>
 
 </neuroml>
