@@ -21,8 +21,8 @@ virtualenv:
 
 
 env:
-    - OMV_ENGINE=PyNEURON:7.4
     - OMV_ENGINE=PyNEURON:7.5
+    - OMV_ENGINE=PyNEURON:7.7
     - OMV_ENGINE=jNeuroML
     - OMV_ENGINE=jNeuroML_validate
     - OMV_ENGINE=jNeuroML_NEURON

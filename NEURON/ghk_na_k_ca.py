@@ -30,7 +30,7 @@ def create_comp(name = 'soma'):
     #phi will be multiplied by ica _density_
     area = h.area(0.5)
     phi = 3e-3
-    print '0.1 * phi * area to be used in lems', 0.1 * phi * area 
+    print('0.1 * phi * area to be used in lems:  %s'%(0.1 * phi * area))
     comp(0.5).cabuff.phi = phi
 
     h.cao0_ca_ion = 2
@@ -54,7 +54,7 @@ def plot_timeseries(vdict, varlist):
 def create_dumps(section, varlist):
     recordings = {n: h.Vector() for n in varlist}
 
-    for (vn, v) in recordings.iteritems():
+    for (vn, v) in recordings.items():
         v.record(section(0.5).__getattribute__('_ref_' + vn))
     
     recordings['t'] = h.Vector()
