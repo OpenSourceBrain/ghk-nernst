@@ -1,23 +1,18 @@
-# Framework for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
 
-dist: trusty
-sudo: false  
+# Framework for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+dist: xenial
 
 addons:
   apt:
     packages:
-    - python-matplotlib 
     - python-tk
     - python-numpy 
-    - python-scipy 
-    - python-tornado
     - python-lxml
+    - python-tornado
+    - python-tables
 
 language: python
-python: 2.7
-
-virtualenv:
-    system_site_packages: true
+python: 3.6
 
 
 env:
@@ -29,7 +24,9 @@ env:
     - OMV_ENGINE=jNeuroML_NetPyNE
 
 install: 
-    - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+    - pip install git+https://github.com/OpenSourceBrain/osb-model-validation    
+    - pip install matplotlib>=2.2.5 # This is more because Matplotlib v2.x is required...
+    - pip install future pandas matplotlib-scalebar bokeh scipy  # For NetPyNE
 
 script:
     - omv all -V
