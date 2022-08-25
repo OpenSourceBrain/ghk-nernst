@@ -3,7 +3,7 @@ GHK & Nernst examples
 
 [![Continuous build using OMV](https://github.com/OpenSourceBrain/ghk-nernst/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/ghk-nernst/actions/workflows/omv-ci.yml)
 
-Sample [LEMS & NeuroML 2](https://github.com/OpenSourceBrain/ghk-nernst/tree/master/NeuroML2) files implementing a single compartment model, containg HH
+Sample [LEMS & NeuroML 2](https://github.com/OpenSourceBrain/ghk-nernst/tree/master/NeuroML2) files implementing a single compartment model, containing HH
 type Na+/K+ channels, a Ca++ channel and pool. The Calcium current
 through the channel can be calculated either through the [GHK flux
 equation](http://en.wikipedia.org/wiki/GHK_flux_equation), or using
