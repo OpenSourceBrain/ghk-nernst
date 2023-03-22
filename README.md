@@ -18,7 +18,7 @@ scratch by running
 [Native NEURON](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/nernstnat_na_k_ca.py), 
 [from scratch](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/nernst_na_k_ca.py); see 
 also [native Nernst modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/cachan_nernst_native.mod) and 
-[from scratch modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/cachan_nernst.mod)
+[from scratch modfile](https://github.com/OpenSourceBrain/ghk-nernst/blob/master/NEURON/cachan_nernst.mod).
 
 
 Running tests
@@ -48,6 +48,7 @@ Recent versions of neuroConstruct support GHK, generating NeuroML2 and
 NEURON code accordingly. In order to use the GHK flux equation instead
 of Ohm's law for a particular mechanism, set an extra parameter
 GHK_permeability (in m/s) using the *Edit Density Mechs* dialog.
+
 ![Image](./images/nc_ghk.png?raw=true)
  
 
