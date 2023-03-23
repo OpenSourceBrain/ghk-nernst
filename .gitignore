@@ -17,3 +17,4 @@ neuroConstruct/savedNetworks
 /NeuroML2/*.dat
 /NeuroML2/LEMS_nernst_na_k_ca_netpyne.py
 /NeuroML2/LEMS_nernst_na_k_ca_netpyne.py_main.json
+arm64
