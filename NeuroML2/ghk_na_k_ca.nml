@@ -117,14 +117,14 @@
 
     <!-- Create a single-cell network -->
     <network id="net1" type="networkWithTemperature" temperature = "16.3 degC">
-        <population id="pop" component="na_k_ca" type="populationList" size="1">
+        <population id="pop0" component="na_k_ca" type="populationList" size="1">
             <instance id="0">
                 <location x="0" y="0" z="0"/>
             </instance>
         </population>
 
-        <inputList id="IClamp" component="IClamp" population="pop">
-            <input id="0" target="../pop/0/na_k_ca" destination="synapses"/>
+        <inputList id="IClamp" component="IClamp" population="pop0">
+            <input id="0" target="../pop0/0/na_k_ca" destination="synapses"/>
         </inputList>
 
     </network>
