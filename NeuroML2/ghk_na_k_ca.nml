@@ -64,16 +64,16 @@
                 <distal x="0.0" y="0.0" z="10.0" diameter="1.0"/>
             </segment>
 
-            <segmentGroup id="Soma">
+            <segmentGroup id="SomaG">
                 <member segment="0"/>
             </segmentGroup>
 
             <segmentGroup id="all">
-                <include segmentGroup="Soma"/>
+                <include segmentGroup="SomaG"/>
             </segmentGroup>
 
             <segmentGroup id="soma_group">
-                <include segmentGroup="Soma"/>
+                <include segmentGroup="SomaG"/>
             </segmentGroup>
 
         </morphology>
