@@ -8,7 +8,7 @@ experiments:
     observables:
       spike times:
         file: 
-          path: nernst.dat
+          path: lems_nernst.dat
           columns: [0,1]
           scaling: [1000, 1000]
         spike detection: 

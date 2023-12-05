@@ -18,24 +18,24 @@
 
     
     <Display id="d4" title="Membrane Potential (mV)" timeScale="1ms" xmin="0" xmax="50" ymin="-80" ymax="40">
-      <Line id="V GHK" quantity="pop/0/na_k_ca_ghk/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
+      <Line id="V GHK" quantity="pop1/0/na_k_ca_ghk/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
       <Line id="V GHK2" quantity="pop2/0/na_k_ca_ghk2/v" scale="1mV"  color="#ffff00" timeScale="1ms"/>
     </Display>
 
     <Display id="d5" title="Ca current density (uA_per_cm2)" timeScale="1ms" xmin="0" xmax="50" ymin="-2" ymax="23">
-      <Line id="Ca iDensity GHK" quantity="pop/0/na_k_ca_ghk/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
+      <Line id="Ca iDensity GHK" quantity="pop1/0/na_k_ca_ghk/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ff00" timeScale="1ms"/>
       <Line id="Ca iDensity GHK2" quantity="pop2/0/na_k_ca_ghk2/biophys/membraneProperties/ca_all/iDensity" scale="1uA_per_cm2"  color="#00ffff" timeScale="1ms"/>
     </Display>
 
     <Display id="d6" title="Internal Ca concentration (mM)" timeScale="1ms" xmin="0" xmax="50" ymin="0" ymax="45">
-      <Line id="caConc GHK" quantity="pop/0/na_k_ca_ghk/caConc" scale="1e-6 mM"  color="#ff00ff" timeScale="1ms"/>
+      <Line id="caConc GHK" quantity="pop1/0/na_k_ca_ghk/caConc" scale="1e-6 mM"  color="#ff00ff" timeScale="1ms"/>
       <Line id="caConc GHK2" quantity="pop2/0/na_k_ca_ghk2/caConc" scale="1e-6 mM"  color="#ff0000" timeScale="1ms"/>
     </Display>
 
     <OutputFile id="of0" fileName="lems_ghk1.dat">
-      <OutputColumn id="v" quantity="pop/0/na_k_ca_ghk/v"/>
-      <OutputColumn id="ica" quantity="pop/0/na_k_ca_ghk/biophys/membraneProperties/ca_all/iDensity"/>
-      <OutputColumn id="ca" quantity="pop/0/na_k_ca_ghk/caConc"/>
+      <OutputColumn id="v" quantity="pop1/0/na_k_ca_ghk/v"/>
+      <OutputColumn id="ica" quantity="pop1/0/na_k_ca_ghk/biophys/membraneProperties/ca_all/iDensity"/>
+      <OutputColumn id="ca" quantity="pop1/0/na_k_ca_ghk/caConc"/>
     </OutputFile>
     
     <OutputFile id="of1" fileName="lems_ghk2.dat">
