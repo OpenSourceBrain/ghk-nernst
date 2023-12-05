@@ -172,12 +172,12 @@
     
 
     <!-- Point process: Current clamp -->
-    <pulseGenerator id="IClamp" delay="4ms" duration="6.0ms" amplitude="0.005nA" />
+    <pulseGenerator id="pg0" delay="4ms" duration="6.0ms" amplitude="0.005nA" />
 
 
     <!-- Create a single-cell network -->
     <network id="net1" type="networkWithTemperature" temperature = "16.3 degC">
-        <population id="pop" component="na_k_ca_ghk" type="populationList" size="1">
+        <population id="pop1" component="na_k_ca_ghk" type="populationList" size="1">
             <instance id="0">
                 <location x="0" y="0" z="0"/>
             </instance>
@@ -189,11 +189,11 @@
             </instance>
         </population>
 
-        <inputList id="IClamp" component="IClamp" population="pop">
-            <input id="0" target="../pop/0/na_k_ca_ghk" destination="synapses"/>
+        <inputList id="IClamp1" component="pg0" population="pop1">
+            <input id="0" target="../pop1/0/na_k_ca_ghk" destination="synapses"/>
         </inputList>
         
-        <inputList id="IClamp2" component="IClamp" population="pop2">
+        <inputList id="IClamp2" component="pg0" population="pop2">
             <input id="0" target="../pop2/0/na_k_ca_ghk2" destination="synapses"/>
         </inputList>
 
