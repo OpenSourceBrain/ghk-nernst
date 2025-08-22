@@ -112,7 +112,7 @@
     </cell>
 
     <!-- Point process: Current clamp -->
-    <pulseGenerator id="IClamp" delay="4ms" duration="6.0ms" amplitude="0.005nA" />
+    <pulseGenerator id="pg0" delay="4ms" duration="6.0ms" amplitude="0.005nA" />
 
 
     <!-- Create a single-cell network -->
@@ -123,7 +123,7 @@
             </instance>
         </population>
 
-        <inputList id="IClamp" component="IClamp" population="pop0">
+        <inputList id="i0" component="pg0" population="pop0">
             <input id="0" target="../pop0/0/na_k_ca" destination="synapses"/>
         </inputList>
 
